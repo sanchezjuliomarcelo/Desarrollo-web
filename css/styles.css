@@ -1,0 +1,13 @@
+.buscador{
+    background-image: url(../img/macarons-frutilla.jpg);
+    margin: 50px 100px 50px 100px;
+    background-position: center;
+    text-align: center;
+	padding-top: 20px
+}
+
+#portada{
+    background-image: url(../img/home.jpg);
+    background-position: center;
+    height: 700px;
+}
