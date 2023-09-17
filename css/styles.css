@@ -1,24 +1,29 @@
+
+
+/*caja buscador index*/
 .buscador{
     background-image: url(../img/macarons-frutilla.jpg);
-    margin: 50px 100px 50px 100px;
+    margin: 50px 10px 50px 10px;
     background-position: center;
     text-align: center;
 	padding-top: 20px
 }
 
+/*imagen fondo portada*/
 #portada{
     background-image: url(../img/home.jpg);
     background-position: center;
     height: 700px;
     margin-bottom: 30px;
 }
+/*boton flotante whatsapp*/
 .whatsapp {
     position: fixed;
     bottom: 20px; 
     right: 20px; 
     z-index: 1000; 
 }
-
+/*maps en contacto*/
 #mapa{
     margin: 50px 1px 50px 1px;
 }
