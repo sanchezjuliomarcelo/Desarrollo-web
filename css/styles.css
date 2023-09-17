@@ -10,5 +10,15 @@
     background-image: url(../img/home.jpg);
     background-position: center;
     height: 700px;
+    margin-bottom: 30px;
+}
+.whatsapp {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
 }
 
+#mapa{
+    margin: 50px 1px 50px 1px;
+}
