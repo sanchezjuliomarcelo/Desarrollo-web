@@ -1,0 +1,54 @@
+/*caja buscador index*/
+.buscador{
+    background-image: url(../img/macarons-frutilla.jpg);
+    margin: 50px 10px 50px 10px;
+    background-position: center;
+    text-align: center;
+	padding-top: 20px
+}
+
+/*imagen fondo portada*/
+#portada{
+    background-image: url(../img/home.jpg);
+    background-position: center;
+    height: 700px;
+    margin-bottom: 30px;
+}
+/*boton flotante whatsapp*/
+.whatsapp {
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 1000; 
+}
+/*maps en contacto*/
+#mapa{
+    margin: 50px 1px 50px 1px;
+}
+
+/*carrousel */
+.carousel-item img{
+    height: 40vh;
+}
+
+@media (min-width: 520px) {
+    .carousel-item img {
+        height: 50vh;
+    }
+}
+
+@media (min-width: 578px) {
+    .carousel-item img {
+        height: 70vh;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-item img {
+        height: 90vh;
+    }
+}
+
+#carouselExampleIndicators {
+    width: 70;
+}
