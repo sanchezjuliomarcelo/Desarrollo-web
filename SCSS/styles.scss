@@ -26,29 +26,60 @@
     margin: 50px 1px 50px 1px;
 }
 
-/*carrousel */
-.carousel-item img{
-    height: 40vh;
-}
-
-@media (min-width: 520px) {
-    .carousel-item img {
-        height: 50vh;
-    }
-}
-
-@media (min-width: 578px) {
-    .carousel-item img {
-        height: 70vh;
-    }
-}
-
-@media (min-width: 1024px) {
-    .carousel-item img {
-        height: 90vh;
-    }
-}
-
+// Estilos base para el carrousel
 #carouselExampleIndicators {
-    width: 70;
+    // Estilos generales del carrousel
+  }
+  
+/*Estilos para el carrousel en pantallas celulares*/
+  @media (max-height: 40vh) {
+    #carouselExampleIndicators {
+    }
+  }
+/* Estilos para el carrousel en tablets */
+  @media (min-height: 41vh) and (max-height: 70vh) {
+    #carouselExampleIndicators {
+    }
+  }
+  
+/* Estilos para el carrousel pantalla escritorio */
+  @media (min-height: 71vh) {
+    #carouselExampleIndicators {
+    }
+  }
+
+/* Alinea los elementos del menú de navegación al centro */
+.navbar-nav {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Estilo de botón para los elementos del menú de navegación */
+.navbar-nav .nav-item {
+    display: inline-flexbox;
+    margin: 0 10px; /* Espacio entre los elementos del menú */
+}
+
+.navbar-nav .nav-link {
+    padding: 10px 20px; /* Espacio interior del botón */
+    background-color: #007bff; /* Color de fondo predeterminado */
+    color: #fff; /* Color del texto */
+    border-radius: 5px; /* Esquinas redondeadas */
+    transition: background-color 0.3s; /* Transición suave de color de fondo */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+}
+
+/* Cambia el color de fondo al pasar el cursor por encima */
+.navbar-nav .nav-link:hover {
+    background-color: #0056b3; /* Nuevo color de fondo al pasar el cursor */
+    color: #fff; /* Color del texto al pasar el cursor */
+}
+
+/* tienda*/
+.container-cards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
