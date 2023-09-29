@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,168 +9,199 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap" rel="stylesheet">
-<!--BOOTSTRAP CSS con link CDN-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/styles.css">
+    <!--BOOTSTRAP CSS con link CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+
 <body>
-<main class="container">
-<!-- header -->
-<header>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-        <img width="250" height="86" src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png" alt="Logo-black" class="logo">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" href="../index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="historia.html">Historia</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="recetas.html">Recetas</a></li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="servicios.html">Servicios</a></li>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="contacto.html">Contacto</a></li>
-              </li>
-             </ul>
-             <a type="button" class="btn btn-outline-success" href="tienda.html">Tienda Online</a>
-            </form>
-          </div>
-        </div>
-      </nav>
-</header>
-<!-- banner recetas -->
-<div id="carouselExampleCaptions" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-         </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="../img/banner-desktop/12.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h2>Recetas de Pastelería Casera</h2>
-          <p>Siempre las mejores recetas para hacer en casa y disfrutar en familia!!!</p>
-        </div>
-      </div>   
-  </div>
-    <!-- Sección de Recetas -->
-    <div class="container my-5">
-        <!-- Receta 1 -->
-        <div class="recipe">
-            <h2>Torta Selva Negra</h2>
+    <main>
+        <!-- header -->
+        <header>
+            <nav class="navbar navbar-expand-lg ">
+                <div class="nav__container">
+
+                    <div class="nav_logo">
+                        <img src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png"
+                            alt="logo header flormiro" id="logo">
+                    </div>
+
+                    <label for="menu" class="nav__label">
+                        <img src="../assets/menu.svg" class="nav__img">
+                    </label>
+                    <input type="checkbox" id="menu" class="nav__input">
+
+                    <div class="nav__menu">
+                        <a href="../index.html" class="nav__item">Home</a>
+                        <a href="../pages/historia.html" class="nav__item">História</a>
+                        <a href="../pages/recetas.html" class="nav__item">Recetas</a>
+                        <a href="../pages/servicios.html" class="nav__item">Servicios</a>
+                        <a href="../pages/contacto.html" class="nav__item">Contacto</a>
+                        <a href="../pages/tienda.html" class="nav__item">Tienda</a>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+        <!-- banner recetas -->
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+            </div>
+            <div class="carousel-inner">
+
+                <img src="../img/banner-desktop/12.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>Recetas de Pastelería Casera</h1>
+                    <p>Siempre las mejores recetas para hacer en casa y disfrutar en familia!!!</p>
+                </div>
+
+            </div>
+            <!-- Sección de Recetas -->
+            <div class="galeria py-5">
+
+                <div class="contenedor-imagenes">
+                    <div class="imagen">
+                        <img src="../img/recetas/babaroise.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Torta Babaroise</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/balcarce.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Postre Balcarce</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/banana split.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Tarta Banana Split</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/Bavaroise de frutilla (3).jpg" alt="">
+                        <div class="overlay">
+                            <h2>Babaroise de Frutilla</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/brownie.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Torta Brownie</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/cheesecake.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Cheesecake de Maracuya</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/chocotorta.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Chocotorta</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/key lime pie.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Key Lime Pie</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/limon.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Lemon Pie</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/Rogel Momentus.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Torta Rogel</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/tarta de ganache y frutos rojos.jpg" alt="">
+                        <div class="overlay">
+                            <h2>Tarta de Frutos Rojos</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/tarta de higos .jpg" alt="">
+                        <div class="overlay">
+                            <h2>Tarta de Higos</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/Torta Arcoiris .jpg" alt="">
+                        <div class="overlay">
+                            <h2>Torta Arcoiris</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/Torta Selva Negra Momentus (2).jpg" alt="">
+                        <div class="overlay">
+                            <h2>Torta Selva Negra</h2>
+                        </div>
+                    </div>
+                    <div class="imagen">
+                        <img src="../img/recetas/Frutos rojos.jpg" alt="">
+                        <div class="overlay">
+                            <h2>cheesecake de frutos rojos</h2>
+                        </div>
+                    </div>
+
+    </main>
+    <!--footer-->
+    <footer class="bg-black text-white">
+        <div class="container py-4">
             <div class="row">
-                <!-- Miniaturas de Imágenes -->
                 <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img width="250" src="../img/recetas/Torta Selva Negra Momentus (1).jpg" alt="Miniatura 1">
-                    </div>
+                    <img width="250" height="188"
+                        src="../img/flormiro-low-resolution-logo-white-on-black-background.png" alt="Logo"
+                        class="img-fluid">
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img width="250" src="../img/recetas/Torta Selva Negra Momentus (2).jpg" alt="Miniatura 2">
-                    </div>
+                    <h5>POLÍTICAS</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Políticas de Privacidad</a></li>
+                        <li><a href="#">Políticas de cookies</a></li>
+                        <li><a href="#">Políticas de Divulgación</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img width="250" src="../img/recetas/Torta Selva Negra Momentus (3).jpg" alt="Miniatura 3">
-                    </div>
+                    <h5>MENÚ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="historia.html">Historia</a></li>
+                        <li><a href="recetas.html">Recetas</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img width="250" src="../img/recetas/Torta Selva Negra Momentus (4).jpg" alt="Miniatura 4">
-                    </div>
+                    <h5>SÍGUENOS</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li>
+                            <a href="https://www.instagram.com" target="_blank">
+                                <img src="../img/rr.ss/instagram_1409946.png" alt="Instagram" class="mr-3 mt-3"
+                                    width="40">
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank">
+                                <img src="../img/rr.ss/facebook_5968764.png" alt="Facebook" class="mr-3 mt-3"
+                                    width="40">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <!-- Lista de Ingredientes -->
-            <h3>Ingredientes</h3>
-            <h6>Para el bizcocho</h6>
-            <ul>
-                <li>4 huevos</li>
-                <li>1 taza de azúcar</li>
-                <li>1 taza de harina de trigo</li>
-                <li>1/2 taza de cacao en polvo</li>
-                <li>1 cucharadita de polvo de hornear</li>
-                <li>1 cucharadita de extracto de vainilla</li>
-            </ul>
-            <!-- Proceso de Preparación -->
-            <h6>Para el relleno y la cobertura:</h6>
-            <ol>
-                <li>2 tazas de crema de leche (nata) para montar</li>
-                <li>1/2 taza de azúcar glas (azúcar impalpable)</li>
-                <li>1 cucharadita de extracto de vainilla</li>
-                <li>1 taza de cerezas en almíbar (o cerezas frescas si están en temporada)</li>
-                <li>1/4 taza de licor de cereza (opcional)</li>
-                <li>Chocolate negro para decorar (rallado o en virutas)</li>
-            </ol>
-        </div>
-        <h3>Paso a Paso</h3>
-        <h6>Para el bizcocho:</h6>
-        <p>Precalienta el horno a 180°C (350°F). Engrasa y enharina dos moldes para pastel de 20 cm (8 pulgadas) de diámetro.
-            En un tazón grande, bate los huevos con el azúcar hasta que la mezcla esté espumosa y haya duplicado su volumen. Esto puede llevar unos 5 minutos.
-            Agrega el extracto de vainilla y mezcla.
-            En otro tazón, tamiza la harina, el cacao en polvo y el polvo de hornear.
-            Incorpora los ingredientes secos tamizados en la mezcla de huevos y azúcar con movimientos suaves y envolventes. Asegúrate de que no queden grumos.
-            Divide la masa en partes iguales entre los dos moldes preparados.
-            Hornea en el horno precalentado durante unos 25-30 minutos o hasta que un palillo insertado en el centro de los bizcochos salga limpio.
-            Retira los bizcochos del horno y déjalos enfriar en los moldes durante unos minutos antes de transferirlos a una rejilla para que se enfríen completamente.</p>
-        <h6>Para el relleno y la cobertura:</h6>
-        <p>En un tazón grande, bate la crema de leche (nata) hasta que comience a espesarse. Luego, agrega el azúcar glas y el extracto de vainilla y continúa batiendo hasta que la crema forme picos suaves. Ten cuidado de no batir en exceso para evitar que la crema se vuelva demasiado espesa.
-            Después de que los bizcochos se hayan enfriado por completo, coloca uno de ellos en un plato de pastel y humedécelo con el licor de cereza (si lo estás utilizando).
-            Extiende una capa de crema batida sobre el bizcocho.
-            Coloca las cerezas sobre la crema.
-            Coloca el segundo bizcocho encima y cubre toda la torta con el resto de la crema batida.
-            Decora la parte superior y los lados de la torta con las virutas de chocolate.
-            Refrigera la Torta Selva Negra durante al menos 2 horas antes de servirla para que los sabores se mezclen bien.</p>
-    </div>
-</main>
-<!--footer-->
-<footer class="bg-black text-white">
-    <div class="container py-4">
-        <div class="row">
-            <div class="col-md-3">
-                <img width="250" height="188" src="../img/flormiro-low-resolution-logo-white-on-black-background.png" alt="Logo" class="img-fluid">
-            </div>
-            <div class="col-md-3">
-                <h5>POLÍTICAS</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#">Políticas de Privacidad</a></li>
-                    <li><a href="#">Políticas de cookies</a></li>
-                    <li><a href="#">Políticas de Divulgación</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-                <h5>MENÚ</h5>
-                <ul class="list-unstyled">
-                    <li><a href="historia.html">Historia</a></li>
-                    <li><a href="recetas.html">Recetas</a></li>
-                    <li><a href="servicios.html">Servicios</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3">
-              <h5>SÍGUENOS</h5>
-              <ul class="list-unstyled">
-                  <li><a href="contacto.html">Contacto</a></li>
-                  <li>
-                      <a href="https://www.instagram.com" target="_blank">
-                          <img src="../img/rr.ss/instagram_1409946.png" alt="Instagram" class="mr-3 mt-3" width="40">
-                      </a>
-                      <a href="https://www.facebook.com" target="_blank">
-                          <img src="../img/rr.ss/facebook_5968764.png" alt="Facebook" class="mr-3 mt-3" width="40">
-                      </a>
-                  </li>
-              </ul>
-          </div>
     </footer>
-<!--BOOTSTRAP JS con link CDN-->  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--BOOTSTRAP JS con link CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
     <title>Flormiro</title>
     </head>
 </body>
+
 </html>

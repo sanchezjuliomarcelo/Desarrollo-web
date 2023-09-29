@@ -1,71 +1,275 @@
-@charset "UTF-8";
-/*caja buscador index*/
-.buscador {
-  background-image: url(../img/macarons-frutilla.jpg);
-  margin: 50px 10px 50px 10px;
-  background-position: center;
-  text-align: center;
-  padding-top: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --padding-container: 100px 0;
+    --color-title: #001A49;
 }
 
-/*imagen fondo portada*/
-#portada {
-  background-image: url(../img/home.jpg);
-  background-position: center;
-  height: 700px;
-  margin-bottom: 30px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(to right bottom, #FFA07A, #00CED1);
 }
 
-/*boton flotante whatsapp*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../img/macarons.jpg');
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    z-index: -1;
+}
+
+.hero__container {
+    max-width: 800px;
+    --padding-container: 0;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+}
+
+.hero__paragraph {
+    margin-bottom: 20px;
+}
+
+/*menu hamburguesa inicio*/
+#logo {
+    height: 60px;
+    min-width: 100%;
+
+}
+
+
+.nav {
+    height: 80px;
+    color: #fff;
+}
+
+.nav__container {
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 3em;
+}
+
+.nav__item {
+    color: #fff;
+    text-decoration: none;
+    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
+
+}
+
+.nav__item::after {
+    content: "";
+    display: block;
+    background: #00CED1;
+    width: 90%;
+    margin-top: 3px;
+    height: 3px;
+    clip-path: var(--clippy);
+    transition: clip-path .3s;
+}
+
+.nav__item:hover {
+    --clippy: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.nav__input:checked+.nav__menu {
+    background-image: linear-gradient(to right bottom, #FFA07A, #00CED1);
+}
+
+.nav__label,
+.nav__input {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    .nav__label {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav__menu {
+        position: fixed;
+        top: 80px;
+        bottom: 0;
+        background-image: linear-gradient(to right bottom, #FFA07A, #00CED1);
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        clip-path: circle(0 at center);
+        transition: clip-path 1s ease-in-out;
+    }
+
+    .nav__input:checked+.nav__menu {
+        clip-path: circle(100% at center);
+    }
+}
+
+/*menu hamburguesa fin*/
+
+
+
+/*boton flotante whatsapp inicio*/
 .whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
-/*maps en contacto*/
+/*boton flotante whatsapp inicio*/
+
+
+/*contacto inicio*/
 #mapa {
-  margin: 50px 1px 50px 1px;
+    margin: 50px 1px 50px 1px;
 }
 
-/*Estilos para el carrousel en pantallas celulares*/
-/* Estilos para el carrousel en tablets */
-/* Estilos para el carrousel pantalla escritorio */
-/* Alinea los elementos del menú de navegación al centro */
-.navbar-nav {
-  margin: 0 auto;
-  text-align: center;
-}
+/*contacto fin*/
 
-/* Estilo de botón para los elementos del menú de navegación */
-.navbar-nav .nav-item {
-  display: inline-flexbox;
-  margin: 0 10px; /* Espacio entre los elementos del menú */
-}
 
-.navbar-nav .nav-link {
-  padding: 10px 20px; /* Espacio interior del botón */
-  background-color: #007bff; /* Color de fondo predeterminado */
-  color: #fff; /* Color del texto */
-  border-radius: 5px; /* Esquinas redondeadas */
-  transition: background-color 0.3s; /* Transición suave de color de fondo */
-  text-decoration: none; /* Elimina el subrayado de los enlaces */
-}
-
-/* Cambia el color de fondo al pasar el cursor por encima */
-.navbar-nav .nav-link:hover {
-  background-color: #0056b3; /* Nuevo color de fondo al pasar el cursor */
-  color: #fff; /* Color del texto al pasar el cursor */
-}
-
-/* tienda*/
+/* tienda inicio*/
 .container-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-/*# sourceMappingURL=styles.css.map */
+/* tienda fin*/
+
+
+/* galeria inicio*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.galeria {
+    font-family: 'Poppins', sans-serif;
+}
+
+.contenedor-imagenes {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    border-radius: 3px;
+}
+
+.contenedor-imagenes .imagen {
+    width: 32%;
+    position: relative;
+    height: 330px;
+    margin-bottom: 5px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, .75)
+}
+
+.imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to right bottom, #FFA07A, #00CED1);
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: .5s ease;
+}
+
+.overlay h2 {
+    color: #fff;
+    font-weight: 300;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.imagen:hover .overlay {
+    height: 100%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1000px) {
+    .contenedor-imagenes {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .contenedor-imagenes {
+        width: 90%;
+    }
+
+    .contenedor-imagenes .imagen {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    .contenedor-imagenes {
+        width: 98%;
+    }
+
+    .contenedor-imagenes .imagen {
+        width: 80%;
+    }
+}
+
+/* galeria fin*/
