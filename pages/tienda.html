@@ -5,29 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../img/flormiro-website-favicon-black.png" type="image/x-icon">
-    <!--Google fonts-->
+
+    <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap" rel="stylesheet">
-    <!--BOOTSTRAP CSS con link CDN-->
+
+    <!-- BOOTSTRAP CSS con link CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <!-- header -->
-    <header>
-        <nav class="navbar navbar-expand-lg ">
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
             <div class="nav__container">
 
-                <div class="nav_logo">
+                <div class="nav__logo">
                     <img src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png"
                         alt="logo header flormiro" id="logo">
                 </div>
 
                 <label for="menu" class="nav__label">
-                    <img src="../assets/menu.svg" class="nav__img">
+                    <img src="../assets/menu.svg" class="nav__img" alt="Menu">
                 </label>
                 <input type="checkbox" id="menu" class="nav__input">
 
@@ -53,15 +57,20 @@
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                 aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../img/banner-desktop/2.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/banner-desktop/5.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/banner-desktop/6.jpg" class="d-block w-100" alt="...">
+        <div id="carouselExampleCaptions">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../img/banner-desktop/5.jpg" class="d-block w-100" alt="banner tienda 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/banner-desktop/8.jpg" class="d-block w-100" alt="banner tienda 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/banner-desktop/2.jpg" class="d-block w-100" alt="banner tienda 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/banner-desktop/12.jpg" class="d-block w-100" alt="banner tienda 4">
+                </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -78,8 +87,7 @@
     <!-- catalogo -->
     <main class="container">
 
-        <body>
-            <div class="container-cards mt-4">
+           <div class="container-cards mt-4">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="card">
@@ -233,12 +241,12 @@
             </div>
     </main>
     <!--footer-->
-    <footer>
+    <footer class="footer mt-5">
         <div class="footer-container">
             <div class="footer-content-container">
                 <h3 class="website-logo">Flor Miro</h3>
                 <span class="footer-info">Chef Patissier & Chocolatier</span>
-                <span class="footer-info">florenciamiro@gmail.com</span>
+                <a href="mailto:florenciamiro@gmail.com" class="footer-info">florenciamiro@gmail.com</a>
             </div>
             <div class="footer-menus">
                 <div class="footer-content-container">
@@ -258,22 +266,21 @@
             <div class="footer-content-container">
                 <span class="menu-title">REDES</span>
                 <div class="social-container">
-                    <a href="" class="social-link"></a>
-                    <a href="" class="social-link"></a>
-                    <a href="" class="social-link"></a>
+                    <a href="https://www.facebook.com/Flormi1980" class="social-link" target="_blank"
+                        rel="noopener noreferrer"></a>
+                    <!-- Agrega enlaces a las otras redes sociales aquí -->
                 </div>
             </div>
         </div>
-    </footer>   
+    </footer>
     <!-- icono de WhatsApp -->
-    <link rel="stylesheet" href="../css/styles.css">
     <div class="whatsapp">
         <a href="https://api.whatsapp.com/send/?phone=541167533575&text=Hola%21&type=phone_number&app_absent=0"
             target="_blank" rel="noopener noreferrer">
             <img src="../img/rr.ss/whatsapp_3670051.png" alt="WhatsApp" class="mr-3" width="50">
         </a>
     </div>
-    <!--BOOTSTRAP JS con link CDN-->
+    <!-- BOOTSTRAP JS con link CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
