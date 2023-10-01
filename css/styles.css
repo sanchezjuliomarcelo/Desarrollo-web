@@ -1,35 +1,35 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
-*{
+* {
   font-family: "Poppins", sans-serif;
 }
 
 body {
-    background-image: linear-gradient(to right bottom, #ffa07a, #00ced1);
+  background-image: linear-gradient(to right bottom, #ffa07a, #00ced1);
 }
 
-header{
+header {
   padding: 1rem 5%;
 }
 
-footer{
+footer {
   padding: 1rem 5%;
 }
 
-h1{
+h1 {
   font-size: 5rem;
 }
 
-h2{
+h2 {
   font-size: 3rem;
 }
 
-h3{
+h3 {
   font-size: 2rem;
 }
 
-p{
+p {
   font-size: 1.5rem;
 }
 
@@ -52,7 +52,12 @@ p{
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5490196078) 0%, rgba(0, 0, 0, 0.5490196078) 100%), url("../img/macarons.jpg");
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5490196078) 0%,
+      rgba(0, 0, 0, 0.5490196078) 100%
+    ),
+    url("../img/macarons.jpg");
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
   z-index: -1;
@@ -317,7 +322,7 @@ footer {
   justify-content: space-around;
   flex-wrap: wrap;
   border-radius: 5px;
- }
+}
 
 .contenedor-imagenes .imagen {
   width: 32%;
@@ -330,7 +335,7 @@ footer {
 .imagen img {
   width: 100%;
   height: 100%;
-  object-fit:cover;
+  object-fit: cover;
 }
 
 .overlay {
@@ -450,3 +455,110 @@ footer {
 
 /*# sourceMappingURL=styles.css.map */
 
+/* servicios inicio */
+
+section {
+  padding: 1.5rem 9%;
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  #menu-btn {
+    display: initial;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+.servicios {
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.servicios .image {
+  flex: 1 1 45rem;
+}
+
+.servicios .image img {
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.servicios .content {
+  flex: 1 1 45rem;
+}
+
+.servicios .content h1 {
+  font-size: 4.5rem;
+  padding-block-end: 1rem 0;
+  color: var(--Very-Dark-Blue);
+}
+
+.servicios .content p {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  max-width: 40rem;
+  color: var(--Grayish-Blue);
+  padding-bottom: 4rem;
+}
+
+.servicios .content .home-btn {
+  padding: 1.3rem 2rem;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.4rem;
+  box-shadow: 0.5rem 0.5rem hsl(231, 69%, 60%);
+  border: 2px solid var(--Soft-Blue);
+  border-radius: 0.5rem;
+}
+
+.servicios .content .home-btn:hover {
+  background-color: var(--Soft-Blue);
+  box-shadow: none;
+  color: #fff;
+}
+
+.features .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+  margin: 3rem 0;
+}
+
+.features .row .image {
+  flex: 1 1 45rem;
+}
+
+.features .row .image img {
+  width: 100%;
+}
+
+.features .row .content {
+  flex: 1 1 45rem;
+}
+
+.features .row .content h2 {
+  font-size: 3rem;
+  padding: 1rem 0;
+  color: var(--Very-Dark-Blue);
+}
+
+.features .row .content p {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+}
+
+/* servicios fin */
