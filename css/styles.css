@@ -1,17 +1,39 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-body {
+
+*{
   font-family: "Poppins", sans-serif;
-  background-image: linear-gradient(to right bottom, #ffa07a, #00ced1);
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  padding: 100px 0;
+body {
+    background-image: linear-gradient(to right bottom, #ffa07a, #00ced1);
 }
+
+header{
+  padding: 1rem 5%;
+}
+
+footer{
+  padding: 1rem 5%;
+}
+
+h1{
+  font-size: 5rem;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+h3{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+/* Head inicio */
 
 .hero {
   width: 100%;
@@ -46,28 +68,17 @@ body {
   text-align: center;
 }
 
-.hero__title {
-  font-size: 3rem;
-}
-
-.hero__paragraph {
-  margin-bottom: 20px;
-}
+/* head fin */
 
 /*menu hamburguesa inicio*/
 #logo {
-  height: 60px;
+  height: 90px;
   min-width: 100%;
-}
-
-.nav {
-  height: 80px;
-  color: #fff;
 }
 
 .nav__container {
   display: flex;
-  height: 100%;
+  height: 90%;
   width: 90%;
   margin: 0 auto;
   justify-content: space-between;
@@ -81,6 +92,7 @@ body {
 }
 
 .nav__item {
+  font-size: 1.2rem;
   color: #fff;
   text-decoration: none;
   --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%);
@@ -110,7 +122,7 @@ body {
   display: none;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1090px) {
   .nav__label {
     display: block;
     cursor: pointer;
@@ -135,6 +147,7 @@ body {
   }
 }
 /*menu hamburguesa fin*/
+
 /*boton flotante whatsapp inicio*/
 .whatsapp {
   position: fixed;
@@ -144,12 +157,13 @@ body {
 }
 
 /*boton flotante whatsapp inicio*/
+
 /*contacto inicio*/
 #mapa {
   margin: 50px 1px 50px 1px;
 }
-
 /*contacto fin*/
+
 /* tienda inicio*/
 .container-cards {
   display: flex;
@@ -160,9 +174,9 @@ body {
 }
 
 /* tienda fin*/
+
 /* footer inicio*/
 footer {
-  font-family: "Poppins", sans-serif;
   bottom: 0;
   left: 0;
   height: fit-content;
@@ -200,7 +214,7 @@ footer {
   flex-direction: column;
 }
 
-footer .website-logo {
+.website-logo {
   margin-bottom: 1.2rem;
   font-size: calc(1vw + 20px);
 }
@@ -247,11 +261,11 @@ footer .website-logo {
   opacity: 0.7;
 }
 
-footer .social-link:nth-of-type(2) {
+.social-link:nth-of-type(2) {
   background-image: url(../img/rr.ss/TwitterBlanco.png);
 }
 
-footer .social-link:nth-of-type(3) {
+.social-link:nth-of-type(3) {
   background-image: url(../img/rr.ss/InstagramBlanco.png);
 }
 
@@ -293,10 +307,8 @@ footer .social-link:nth-of-type(3) {
   }
 }
 /* footer  fin*/
+
 /* galeria inicio*/
-.galeria {
-  font-family: "Poppins", sans-serif;
-}
 
 .contenedor-imagenes {
   display: flex;
@@ -304,21 +316,21 @@ footer .social-link:nth-of-type(3) {
   margin: auto;
   justify-content: space-around;
   flex-wrap: wrap;
-  border-radius: 3px;
-}
+  border-radius: 5px;
+ }
 
 .contenedor-imagenes .imagen {
   width: 32%;
   position: relative;
   height: 330px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
 }
 
 .imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit:cover;
 }
 
 .overlay {
@@ -381,4 +393,60 @@ footer .social-link:nth-of-type(3) {
 }
 /* galeria fin*/
 
+/* home section starts  */
+.home {
+  padding-top: 15rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /* main property for responsiveness */
+  gap: 1.5rem;
+}
+
+.home .image {
+  flex: 1 1 45rem;
+}
+
+.home .image img {
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.home .content {
+  flex: 1 1 45rem;
+}
+
+.home .content h1 {
+  font-size: 4.5rem;
+  padding-block-end: 1rem 0;
+  color: var(--Very-Dark-Blue);
+}
+
+.home .content p {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  max-width: 40rem;
+  color: var(--Grayish-Blue);
+  padding-bottom: 4rem;
+}
+
+.home .content .home-btn {
+  padding: 1.3rem 2rem;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.4rem;
+  box-shadow: 0.5rem 0.5rem hsl(231, 69%, 60%);
+  border: 2px solid var(--Soft-Blue);
+  border-radius: 0.5rem;
+}
+
+.home .content .home-btn:hover {
+  background-color: var(--Soft-Blue);
+  box-shadow: none;
+  color: #fff;
+}
+
+/* home section ends */
+
 /*# sourceMappingURL=styles.css.map */
+
