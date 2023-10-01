@@ -1,289 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../img/flormiro-website-favicon-black.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../img/flormiro-website-favicon-black.png"
+      type="image/x-icon"
+    />
 
     <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- BOOTSTRAP CSS con link CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
 
-<body>
+  <body>
     <!-- header -->
     <header class="header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="nav__container">
+      <nav class="navbar navbar-expand-lg">
+        <div class="nav__container">
+          <div class="nav__logo">
+            <img
+              src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png"
+              alt="logo header flormiro"
+              id="logo"
+            />
+          </div>
 
-                <div class="nav__logo">
-                    <img src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png"
-                        alt="logo header flormiro" id="logo">
-                </div>
+          <label for="menu" class="nav__label">
+            <img src="../assets/menu.svg" class="nav__img" alt="Menu" />
+          </label>
+          <input type="checkbox" id="menu" class="nav__input" />
 
-                <label for="menu" class="nav__label">
-                    <img src="../assets/menu.svg" class="nav__img" alt="Menu">
-                </label>
-                <input type="checkbox" id="menu" class="nav__input">
-
-                <div class="nav__menu">
-                    <a href="../index.html" class="nav__item">Home</a>
-                    <a href="../pages/historia.html" class="nav__item">História</a>
-                    <a href="../pages/recetas.html" class="nav__item">Recetas</a>
-                    <a href="../pages/contacto.html" class="nav__item">Contacto</a>
-                    <a href="../pages/tienda.html" class="nav__item">Tienda</a>
-                </div>
-
-            </div>
-        </nav>
+          <div class="nav__menu">
+            <a href="../index.html" class="nav__item">Home</a>
+            <a href="../pages/historia.html" class="nav__item">História</a>
+            <a href="../pages/recetas.html" class="nav__item">Recetas</a>
+            <a href="../pages/contacto.html" class="nav__item">Contacto</a>
+            <a href="../pages/tienda.html" class="nav__item">Tienda</a>
+          </div>
+        </div>
+      </nav>
     </header>
     <!-- banner principal -->
-    <div id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="carousel" data-bs-interval="5000">
-        <!-- Agregamos data-bs-ride y data-bs-interval -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide my-3"
+      data-bs-ride="carousel"
+      data-bs-interval="5000"
+    >
+      <!-- Agregamos data-bs-ride y data-bs-interval -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="Slide 1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+      </div>
+      <div id="carouselExampleCaptions">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="../img/banner-desktop/5.jpg"
+              class="d-block w-100"
+              alt="banner tienda 1"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../img/banner-desktop/8.jpg"
+              class="d-block w-100"
+              alt="banner tienda 2"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../img/banner-desktop/2.jpg"
+              class="d-block w-100"
+              alt="banner tienda 3"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="../img/banner-desktop/12.jpg"
+              class="d-block w-100"
+              alt="banner tienda 4"
+            />
+          </div>
         </div>
-        <div id="carouselExampleCaptions">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../img/banner-desktop/5.jpg" class="d-block w-100" alt="banner tienda 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/banner-desktop/8.jpg" class="d-block w-100" alt="banner tienda 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/banner-desktop/2.jpg" class="d-block w-100" alt="banner tienda 3">
-                </div>
-                <div class="carousel-item">
-                    <img src="../img/banner-desktop/12.jpg" class="d-block w-100" alt="banner tienda 4">
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
     <!-- catalogo -->
     <main class="container">
-
-           <div class="container-cards mt-4">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (1).jpg" class="card-img-top"
-                                alt="Producto 1">
-                            <div class="card-body">
-                                <h5 class="card-title">combo 1</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                             </div>   
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (2).jpg" class="card-img-top"
-                                alt="Producto 2">
-                            <div class="card-body">
-                                <h5 class="card-title">combo 2</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (3).jpg" class="card-img-top"
-                                alt="Producto 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 3</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (4).jpg" class="card-img-top"
-                                alt="Producto 4">
-                            <div class="card-body">
-                                <h5 class="card-title">combo 4</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (5).jpg" class="card-img-top"
-                                alt="Producto 5">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 5</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (6).jpg" class="card-img-top"
-                                alt="Producto 6">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 6</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (7).jpg" class="card-img-top"
-                                alt="Producto 7">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 7</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (8).jpg" class="card-img-top"
-                                alt="Producto 8">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 8</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (9).jpg" class="card-img-top"
-                                alt="Producto 9">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 9</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (10).jpg" class="card-img-top"
-                                alt="Producto 10">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 10</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (10).jpg" class="card-img-top"
-                                alt="Producto 11">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 11</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <div class="card">
-                            <img src="../img/Productos/box macarons Momentus (10).jpg" class="card-img-top"
-                                alt="Producto 12">
-                            <div class="card-body">
-                                <h5 class="card-title">Combo 12</h5>
-                                <h6 class="card-text">Box macarons franceses con vino dulce.</h6>
-                                <p class="card-text">Precio: $999.999</p>
-                                <button class="btn btn-primary">Comprar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container-cards mt-4">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (1).jpg"
+                class="card-img-top"
+                alt="Producto 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">combo 1</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
             </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (2).jpg"
+                class="card-img-top"
+                alt="Producto 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">combo 2</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (3).jpg"
+                class="card-img-top"
+                alt="Producto 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 3</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (4).jpg"
+                class="card-img-top"
+                alt="Producto 4"
+              />
+              <div class="card-body">
+                <h5 class="card-title">combo 4</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (5).jpg"
+                class="card-img-top"
+                alt="Producto 5"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 5</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (6).jpg"
+                class="card-img-top"
+                alt="Producto 6"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 6</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (7).jpg"
+                class="card-img-top"
+                alt="Producto 7"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 7</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (8).jpg"
+                class="card-img-top"
+                alt="Producto 8"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 8</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (9).jpg"
+                class="card-img-top"
+                alt="Producto 9"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 9</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (10).jpg"
+                class="card-img-top"
+                alt="Producto 10"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 10</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (10).jpg"
+                class="card-img-top"
+                alt="Producto 11"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 11</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card">
+              <img
+                src="../img/Productos/box macarons Momentus (10).jpg"
+                class="card-img-top"
+                alt="Producto 12"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Combo 12</h5>
+                <h6 class="card-text">
+                  Box macarons franceses con vino dulce.
+                </h6>
+                <p class="card-text">Precio: $999.999</p>
+                <button class="btn btn-primary">Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!--footer-->
     <footer class="footer mt-5">
-        <div class="footer-container">
-            <div class="footer-content-container">
-                <h3 class="website-logo">Flor Miro</h3>
-                <span class="footer-info">Chef Patissier & Chocolatier</span>
-                <a href="mailto:florenciamiro@gmail.com" class="footer-info">florenciamiro@gmail.com</a>
-            </div>
-            <div class="footer-menus">
-                <div class="footer-content-container">
-                    <span class="menu-title">POLÍTICAS</span>
-                    <a href="../subpages/politicas-de-privacidad.html" class="menu-item-footer">Privacidad</a>
-                    <a href="../subpages/politicas-de-cookies.html" class="menu-item-footer">Cookies</a>
-                    <a href="../subpages/politicas-de-divulgacion.html" class="menu-item-footer">Divulgación</a>
-                </div>
-                <div class="footer-content-container">
-                    <span class="menu-title">MENÚ</span>
-                    <a href="../pages/historia.html" class="menu-item-footer">Historia</a>
-                    <a href="../pages/recetas.html" class="menu-item-footer">Recetas</a>
-                    <a href="../pages/contacto.html" class="menu-item-footer">Contacto</a>
-                </div>
-            </div>
-            
-            <div class="footer-content-container">
-                <span class="menu-title">REDES</span>
-                <div class="social-container">
-                    <a href="https://www.facebook.com/Flormi1980" class="social-link" target="_blank"
-                        rel="noopener noreferrer"></a>
-                    <!-- Agrega enlaces a las otras redes sociales aquí -->
-                </div>
-            </div>
+      <div class="footer-container">
+        <div class="footer-content-container">
+          <h3 class="website-logo">Flor Miro</h3>
+          <span class="footer-info">Chef Patissier & Chocolatier</span>
+          <a href="mailto:florenciamiro@gmail.com" class="footer-info"
+            >florenciamiro@gmail.com</a
+          >
         </div>
+        <div class="footer-menus">
+          <div class="footer-content-container">
+            <span class="menu-title">POLÍTICAS</span>
+            <a
+              href="../subpages/politicas-de-privacidad.html"
+              class="menu-item-footer"
+              >Privacidad</a
+            >
+            <a
+              href="../subpages/politicas-de-cookies.html"
+              class="menu-item-footer"
+              >Cookies</a
+            >
+            <a
+              href="../subpages/politicas-de-divulgacion.html"
+              class="menu-item-footer"
+              >Divulgación</a
+            >
+          </div>
+          <div class="footer-content-container">
+            <span class="menu-title">MENÚ</span>
+            <a href="../pages/historia.html" class="menu-item-footer"
+              >Historia</a
+            >
+            <a href="../pages/recetas.html" class="menu-item-footer">Recetas</a>
+            <a href="../pages/contacto.html" class="menu-item-footer"
+              >Contacto</a
+            >
+          </div>
+        </div>
+
+        <div class="footer-content-container">
+          <span class="menu-title">REDES</span>
+          <div class="social-container">
+            <a
+              href="https://www.facebook.com/Flormi1980"
+              class="social-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            ></a>
+            <!-- Agrega enlaces a las otras redes sociales aquí -->
+          </div>
+        </div>
+      </div>
     </footer>
     <!-- icono de WhatsApp -->
     <div class="whatsapp">
-        <a href="https://api.whatsapp.com/send/?phone=541167533575&text=Hola%21&type=phone_number&app_absent=0"
-            target="_blank" rel="noopener noreferrer">
-            <img src="../img/rr.ss/whatsapp_3670051.png" alt="WhatsApp" class="mr-3" width="50">
-        </a>
+      <a
+        href="https://api.whatsapp.com/send/?phone=541167533575&text=Hola%21&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../img/rr.ss/whatsapp_3670051.png"
+          alt="WhatsApp"
+          class="mr-3"
+          width="50"
+        />
+      </a>
     </div>
     <!-- BOOTSTRAP JS con link CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
