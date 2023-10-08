@@ -30,15 +30,27 @@ h3 {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
 }
 
 li {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 
 h5 {
   font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+}
+
+a {
+  font-size: 1.8rem;
+}
+
+span {
+  font-size: 1.8rem;
 }
 
 .hero {
@@ -432,7 +444,7 @@ footer {
 }
 
 .menu-title {
-  font-size: var(--medium-text-font);
+  font-size: 2rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 1.2rem;
