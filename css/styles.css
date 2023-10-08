@@ -387,6 +387,32 @@ input::placeholder, textarea::placeholder {
   gap: 20px;
 }
 
+.discount-badge {
+  font-size: 1, 6rem;
+  background-color: #00ced1;
+  color: black;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
+}
+
+.favorite-icon {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 28px;
+  color: #ffa07a;
+  transition: color 0.3s;
+}
+
+.favorite-icon.active {
+  color: red;
+}
+
 footer {
   bottom: 0;
   left: 0;
