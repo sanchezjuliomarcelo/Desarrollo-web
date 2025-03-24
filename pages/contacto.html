@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../img/flormiro-website-favicon-black.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <!-- SEO -->
+    <title>Flormiro - Contáctanos</title>
+    <meta
+      name="description"
+      content="Sitio web de Flormiro, Chef Patissier y Chocolatier. Contáctanos para dejar tus consultas."
+    />
+    <meta name="theme-color" content="#2091F9" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="nav__container">
+          <div class="nav__logo">
+            <a href="../index.html">
+            <img
+              src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png"
+              alt="logo header flormiro"
+              id="logo"
+              class="nav__logo-img"
+            />
+          </a>
+          </div>
+          <label for="menu" class="nav__label">
+            <img src="../assets/menu.svg" class="nav__img" />
+          </label>
+          <input type="checkbox" id="menu" class="nav__input" />
+          <div class="nav__menu">
+            <a href="../index.html" class="nav__item">Home</a>
+            <a href="../pages/historia.html" class="nav__item">História</a>
+            <a href="../pages/recetas.html" class="nav__item">Recetas</a>
+            <a href="../pages/contacto.html" class="nav__item">Contacto</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Banner contacto -->
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-inner">
+        <img
+          src="../img/banner-desktop/6.jpg"
+          class="d-block w-100"
+          alt="banner recetas"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="carousel-heading">Contáctanos</h1>
+          <p class="carousel-paragraph">Siempre queremos saber de ti</p>
+        </div>
+      </div>
+    </div>
+    <!-- Fin banner contacto -->
+
+    <!-- Main Content -->
+    <main>
+      <section id="contacto">
+      <form action="https://formsubmit.co/florenciamiro@gmail.com" method="POST" >
+
+        <h3 class="contact-heading">Envíame tu consulta</h3>
+
+        <div class="input-group">
+
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name" placeholder="Nombre" required>
+
+            <label for="phone">Teléfono</label>
+            <input type="tel" name="phone" id="phone" placeholder="Telefono" >
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message" cols="30" rows="5" placeholder="Mensaje" required></textarea>
+
+            <div class="form-txt">
+                <a href="../subpages/politicas-de-privacidad.html">Polítia de privacidad</a>
+                <a href="../subpages/politicas-de-cookies.html">Polítia de coockies</a>
+            </div>
+      
+            <Input class="home-btn" type="submit" value="enviar" >
+
+          <input type="hidden" name="_next" value="https://sanchezjuliomarcelo.github.io/Desarrollo-web/pages/contacto.html">
+          <input type="hidden" name="_captcha" value="false">
+
+        </div>
+      </form>
+    </section> 
+    </main>
+
+    <!-- Google Maps -->
+    <section id="mapa" class="text-center">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d205.17440092143244!2d-58.480058010191925!3d-34.634736302782095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc9ece82b39a5%3A0xd052fbe368e697b!2sFlormiro.patisserie!5e0!3m2!1ses!2sar!4v1692557672702!5m2!1ses!2sar"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="mx-auto"
+      ></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content-container">
+          <h3 class="website-logo">Flor Miro</h3>
+          <span class="footer-info">Chef Patissier & Chocolatier</span>
+          <a href="mailto:florenciamiro@gmail.com" class="footer-info"
+            >florenciamiro@gmail.com</a
+          >
+        </div>
+        <div class="footer-menus">
+          <div class="footer-content-container">
+            <span class="menu-title">POLÍTICAS</span>
+            <a
+              href="../subpages/politicas-de-privacidad.html"
+              class="menu-item-footer"
+              >Privacidad</a
+            >
+            <a
+              href="../subpages/politicas-de-cookies.html"
+              class="menu-item-footer"
+              >Cookies</a
+            >
+            <a
+              href="../subpages/politicas-de-divulgacion.html"
+              class="menu-item-footer"
+              >Divulgación</a
+            >
+          </div>
+          <div class="footer-content-container">
+            <span class="menu-title">MENÚ</span>
+            <a href="../pages/historia.html" class="menu-item-footer"
+              >Historia</a
+            >
+            <a href="../pages/recetas.html" class="menu-item-footer">Recetas</a>
+            <a href="../pages/servicios.html" class="menu-item-footer"
+              >Servicios</a
+            >
+            <a href="../pages/contacto.html" class="menu-item-footer"
+              >Contacto</a
+            >
+          </div>
+        </div>
+        <div class="footer-content-container">
+          <span class="menu-title">REDES</span>
+          <div class="social-container">
+            <a
+              href="https://www.facebook.com/Flormi1980"
+              class="social-link"
+            ></a>
+            <a href="" class="social-link"></a>
+            <a
+              href="https://www.instagram.com/maria_florencia_ok/"
+              class="social-link"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS con link CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

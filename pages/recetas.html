@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flormiro</title>
+  <link rel="shortcut icon" href="../img/flormiro-website-favicon-black.png" type="image/x-icon" />
+
+  <!-- SEO -->
+  <meta name="theme-color" content="#2091F9" />
+  <meta name="title" content="Flormiro" />
+  <meta name="description" content="Sitio web de Flormiro, Chef Patissier y Chocolatier. Encuentra las mejores recetas de pastelería casera." />
+  <meta name="keywords" content="Chef Patissier, Chocolatier, Recetas de Pasteleria, Postres Franceses" />
+
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap CSS con link CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="nav__container">
+        <div class="nav__logo">
+          <a href="../index.html">
+            <img src="../img/flormiro-low-resolution-logo-color-on-transparent-background.png" alt="logo header flormiro" id="logo" class="nav__logo-img" />
+          </a>
+        </div>
+        <label for="menu" class="nav__label">
+          <img src="../assets/menu.svg" class="nav__img" />
+        </label>
+        <input type="checkbox" id="menu" class="nav__input" />
+        <div class="nav__menu">
+          <a href="../index.html" class="nav__item">Home</a>
+          <a href="../pages/historia.html" class="nav__item">História</a>
+          <a href="../pages/recetas.html" class="nav__item">Recetas</a>
+          <a href="../pages/contacto.html" class="nav__item">Contacto</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Banner Recetas -->
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-inner">
+      <img src="../img/banner-desktop/1.jpg" class="d-block w-100" alt="banner recetas" />
+      <div class="carousel-caption d-none d-md-block">
+        <h1 class="carousel-heading">Recetas de Pastelería Casera</h1>
+        <p class="carousel-paragraph">
+          Siempre las mejores recetas para hacer en casa y disfrutar en
+          familia!!!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Sección de Recetas -->
+    <section class="recipes">
+      <div class="galeria py-5">
+        <div class="contenedor-imagenes">
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/babaroise.jpg" alt="torta babaroise" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Torta Babaroise</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/balcarce.jpg" alt="postre balcarce" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Postre Balcarce</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/banana split.jpg" alt="tarta banana split" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Tarta Banana Split</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/Bavaroise de frutilla (3).jpg" alt="Babaroise de Frutilla" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Babaroise de Frutilla</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/brownie.jpg" alt="Torta Brownie" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Torta Brownie</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/cheesecake.jpg" alt="Cheesecake de Maracuya" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Cheesecake de Maracuya</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/chocotorta.jpg" alt="Chocotorta" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Chocotorta</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/key lime pie.jpg" alt="Key Lime Pie" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Key Lime Pie</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/limon.jpg" alt="Lemon Pie" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Lemon Pie</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/Rogel Momentus.jpg" alt="Torta Rogel" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Torta Rogel</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/tarta de ganache y frutos rojos.jpg" alt="Tarta de Frutos Rojos" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Tarta de Frutos Rojos</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/tarta de higos .jpg" alt="Tarta de Higos" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Tarta de Higos</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/Torta Arcoiris .jpg" alt="Torta Arcoiris" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Torta Arcoiris</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/Torta Selva Negra Momentus (2).jpg" alt="Torta Selva Negra" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">Torta Selva Negra</h2>
+            </div>
+          </div>
+          <div class="imagen recipe-card">
+            <img src="../img/recetas/Frutos rojos.jpg" alt="cheesecake de frutos rojos" class="recipe-img" />
+            <div class="overlay">
+              <h2 class="recipe-title">cheesecake de frutos rojos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal para recetas -->
+  <div class="modal fade" id="recetaModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalRecetaTitulo">Título de la receta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6>Ingredientes:</h6>
+          <ul id="modalIngredientes"></ul>
+          <h6>Preparación:</h6>
+          <ol id="modalPreparacion"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content-container">
+        <h3 class="website-logo">Flor Miro</h3>
+        <span class="footer-info">Chef Patissier & Chocolatier</span>
+        <a href="mailto:florenciamiro@gmail.com" class="footer-info">florenciamiro@gmail.com</a>
+      </div>
+      <div class="footer-menus">
+        <div class="footer-content-container">
+          <span class="menu-title">POLÍTICAS</span>
+          <a href="../subpages/politicas-de-privacidad.html" class="menu-item-footer">Privacidad</a>
+          <a href="../subpages/politicas-de-cookies.html" class="menu-item-footer">Cookies</a>
+          <a href="../subpages/politicas-de-divulgacion.html" class="menu-item-footer">Divulgación</a>
+        </div>
+        <div class="footer-content-container">
+          <span class="menu-title">MENÚ</span>
+          <a href="../pages/historia.html" class="menu-item-footer">Historia</a>
+          <a href="../pages/recetas.html" class="menu-item-footer">Recetas</a>
+          <a href="../pages/contacto.html" class="menu-item-footer">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-content-container">
+        <span class="menu-title">REDES</span>
+        <div class="social-container">
+          <a href="https://www.facebook.com/Flormi1980" class="social-link"></a>
+          <a href="#" class="social-link"></a>
+          <a href="https://www.instagram.com/maria_florencia_ok/" class="social-link"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS con link CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <!-- Script personalizado para cargar recetas -->
+  <script src="script.js"></script>
+</body>
+
+</html>

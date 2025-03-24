@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flor Miro Chef Patissier</title>
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="img/flormiro-website-favicon-black.png"
+      type="image/x-icon"
+    />
+
+    <!-- ETIQUETAS SEO -->
+    <meta name="theme-color" content="#2091F9" />
+    <meta
+      name="title"
+      content="Maria Florencia Miro Chef Patissier chocolatier"
+    />
+    <meta
+      name="description"
+      content="Descubre recetas de pasteleria Francesa, Postres Clásicos y Modernos, sus tecnicas y secretos de elaboración"
+    />
+    <meta
+      name="keywords"
+      content="Chef Patissier, Chocolatier, Recetas de Pasteleria, Postres Franceses"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200;300;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS con link CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <!-- Enlace a hoja de estilos personalizada -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="hero">
+      <nav class="navbar navbar-expand-lg">
+        <div class="nav__container">
+          <div class="nav__logo">
+            <a href="index.html">
+            <img
+              src="img/flormiro-low-resolution-logo-color-on-transparent-background.png"
+              alt="logo header flormiro"
+              id="logo"
+              class="nav__img"
+            />
+          </a>
+          </div>
+          <label for="menu" class="nav__label">
+            <img src="assets/menu.svg" alt="ícono de menú" class="nav__img" />
+          </label>
+          <input type="checkbox" id="menu" class="nav__input" />
+          <div class="nav__menu">
+            <a href="index.html" class="nav__item">Home</a>
+            <a href="pages/historia.html" class="nav__item">Historia</a>
+            <a href="pages/recetas.html" class="nav__item">Recetas</a>
+            <a href="pages/contacto.html" class="nav__item">Contacto</a>
+          </div>
+        </div>
+      </nav>
+      <section class="hero__container container">
+        <h1>Florencia Miro</h1>
+        <h2>Chef Pâtissier & Chocolatier</h2>
+      </section>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+      <!-- Sección servicios -->
+      <section class="servicios" id="servicio">
+        <div class="content">
+          <h1 class="servicios__title">Catering para Eventos</h1>
+          <p class="servicios__description">
+            Ofrecemos una variedad de opciones de catering para eventos que
+            harán que tu celebración sea inolvidable.
+          </p>
+          <a href="pages/contacto.html" class="home-btn servicios__btn"
+            >conoce más</a
+          >
+        </div>
+        <div class="image">
+          <img src="img/home/catering-1.jpg" alt="servicio de catering" class="servicios__image"/>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <div class="row">
+          <div class="image">
+            <img src="img/home/tortas-3.jpg" alt="tortas para fiestas" class="features__image"/>
+          </div>
+          <div class="content">
+            <h2 class="features__title">Tortas de Fiestas</h2>
+            <p class="features__description">
+              Nuestras tortas de fiestas son exquisitas y personalizadas para
+              cada ocasión especial.
+            </p>
+          </div>
+          <div class="content">
+            <h2 class="features__title">Chocolatería y Regalos</h2>
+            <p class="features__description">
+              Descubre nuestra selección de chocolates y regalos perfectos para
+              cualquier ocasión.
+            </p>
+          </div>
+          <div class="image">
+            <img src="img/home/chocolate-3.jpg" alt="chocolates y regalos" class="features__image"/>
+          </div>
+          <div class="image">
+            <img src="img/home/catering-4.jpg" alt="servicio de catering" class="features__image"/>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenido del cuerpo -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-content-container">
+          <h3 class="website-logo">Flor Miro</h3>
+          <span class="footer-info">Chef Patissier & Chocolatier</span>
+          <a href="mailto:florenciamiro@gmail.com" class="footer-info"
+            >florenciamiro@gmail.com</a
+          >
+        </div>
+        <div class="footer-menus">
+          <div class="footer-content-container">
+            <span class="menu-title">POLÍTICAS</span>
+            <a
+              href="subpages/politicas-de-privacidad.html"
+              class="menu-item-footer"
+              >Privacidad</a
+            >
+            <a
+              href="subpages/politicas-de-cookies.html"
+              class="menu-item-footer"
+              >Cookies</a
+            >
+            <a
+              href="subpages/politicas-de-divulgacion.html"
+              class="menu-item-footer"
+              >Divulgación</a
+            >
+          </div>
+          <div class="footer-content-container">
+            <span class="menu-title">MENÚ</span>
+            <a href="pages/historia.html" class="menu-item-footer">Historia</a>
+            <a href="pages/recetas.html" class="menu-item-footer">Recetas</a>
+            <a href="pages/contacto.html" class="menu-item-footer">Contacto</a>
+          </div>
+        </div>
+        <div class="footer-content-container">
+          <span class="menu-title">REDES</span>
+          <div class="social-container">
+            <a
+              href="https://www.facebook.com/Flormi1980"
+              class="social-link"
+            ></a>
+            <a href="" class="social-link"></a>
+            <a
+              href="https://www.instagram.com/maria_florencia_ok/"
+              class="social-link"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Icono de WhatsApp -->
+    <div class="whatsapp">
+      <a
+        href="https://api.whatsapp.com/send/?phone=541167533575&text=Hola%21&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="img/rr.ss/whatsapp_3670051.png"
+          alt="WhatsApp"
+          class="whatsapp-icon"
+          width="60"
+        />
+      </a>
+    </div>
+
+    <!-- Bootstrap JS con enlace CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/pages/script.js"></script>
+  </body>
+</html>

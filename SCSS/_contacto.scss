@@ -1,0 +1,58 @@
+#contacto{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  form{
+    padding: 30px 30px;
+    box-shadow: 0 0 20px #ffa07a;
+    border-radius: 20px;
+    text-align: center;
+    width: 420px;
+  }
+  
+  .input-group{
+  
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  label{
+  
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    }
+  
+  input, textarea{
+  
+    padding: 17px 25px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    background-color: #EDFFF0;
+    border: 3px solid #F0FAF1; 
+    color: #000;
+    outline: none;
+  }
+  
+  input::placeholder, textarea::placeholder{
+    color: #b5cab6;
+  }
+  
+  .form-txt{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .form-txt a {
+    color: #000;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
