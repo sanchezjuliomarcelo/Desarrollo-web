@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Página no encontrada" description="La página que buscás no existe o cambió de lugar.">
+  <section class="nf">
+    <div class="wrap nf__inner">
+      <p class="nf__code" aria-hidden="true">404</p>
+      <h1>Acá no quedó ni una miga.</h1>
+      <p class="nf__lead">La página que buscás no existe o cambió de lugar.</p>
+      <div class="nf__actions">
+        <a href="/" class="btn btn--solid">Volver al inicio</a>
+        <a href="/recetas/" class="btn btn--ghost">Ver recetas</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .nf { min-height: 62vh; display: grid; place-items: center; padding-block: clamp(3rem, 8vw, 6rem); text-align: center; }
+  .nf__inner { max-width: 44ch; }
+  .nf__code { font-family: var(--serif); font-size: clamp(4rem, 14vw, 8rem); line-height: 1; color: var(--rose); margin: 0 0 .4rem; }
+  .nf h1 { margin: 0 0 .8rem; }
+  .nf__lead { color: var(--ink-soft); font-size: 1.1rem; margin: 0 auto 2rem; }
+  .nf__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+</style>

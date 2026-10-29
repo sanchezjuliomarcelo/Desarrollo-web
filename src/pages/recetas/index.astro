@@ -1,34 +1,54 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import { recipes, recipeCategories } from "../../data/recipes.js";
+import { publishedRecipes } from "../../data/recipes.js";
+
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: publishedRecipes.map((r, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: new URL(`/recetas/${r.slug}/`, Astro.site).href,
+    name: r.title,
+  })),
+};
+const firstTime = (r) => Object.values(r.times || {})[0];
 ---
 
-<Layout title="Recetas" description="Recetas de pastelería y clásicos argentinos, paso a paso, por Florencia Miro." path="/recetas/">
+<Layout
+  title="Recetas"
+  description="Recetas de pastelería y clásicos argentinos, paso a paso: cantidades claras, tiempos reales y los puntos que hacen la diferencia."
+  path="/recetas/"
+  jsonld={itemList}
+>
   <section class="pagehead">
     <div class="wrap-wide">
       <p class="kicker">Para hacer en casa</p>
       <h1>Recetas</h1>
       <p class="pagehead__lead">
-        Pastelería francesa, tartas y clásicos argentinos explicados paso a paso. Elegí una, animate
-        y disfrutá tu propio momento.
+        Recetas que hago y vuelvo a hacer: cantidades claras, tiempos reales y esos pequeños puntos que
+        hacen la diferencia. Elegí una y metete en la cocina.
       </p>
     </div>
   </section>
 
   <section class="section section--top">
     <div class="wrap-wide">
-      <div class="recetas__grid" data-recetas>
-        {recipes.map((r) => (
-          <a href={`/recetas/${r.slug}/`} class="rcard" data-cat={r.cat}>
+      <div class="recetas__grid">
+        {publishedRecipes.map((r) => (
+          <a href={`/recetas/${r.slug}/`} class="rcard">
             <div class="rcard__imgwrap">
-              <Image src={r.img} alt={r.title} class="rcard__img" widths={[400, 640]} sizes="(max-width:600px) 90vw, 360px" />
+              <Image src={r.img} alt={r.imageAlt} class="rcard__img" widths={[400, 640]} sizes="(max-width:600px) 90vw, 360px" />
             </div>
             <div class="rcard__body">
               <span class="rcard__cat">{r.cat}</span>
-              <h3>{r.title}</h3>
-              <p>{r.intro}</p>
-              <span class="rcard__meta">{r.ingredientes.length} ingredientes · {r.preparacion.length} pasos</span>
+              <h2>{r.title}</h2>
+              <p>{r.subtitle}</p>
+              <span class="rcard__meta">
+                {r.difficulty && <span>{r.difficulty}</span>}
+                {firstTime(r) && <span>{firstTime(r)}</span>}
+              </span>
             </div>
           </a>
         ))}
@@ -40,7 +60,7 @@ import { recipes, recipeCategories } from "../../data/recipes.js";
 <style>
   .pagehead { background: var(--cream); padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); }
   .pagehead h1 { margin: 0 0 .6rem; }
-  .pagehead__lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 56ch; }
+  .pagehead__lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
   .section--top { padding-top: clamp(2.5rem, 5vw, 4rem); }
 
   .recetas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
@@ -51,9 +71,9 @@ import { recipes, recipeCategories } from "../../data/recipes.js";
   .rcard:hover .rcard__img { transform: scale(1.05); }
   .rcard__body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
   .rcard__cat { font-variant: small-caps; letter-spacing: .04em; color: var(--caramel-deep); font-family: var(--serif); font-size: 1rem; }
-  .rcard__body h3 { margin: .15rem 0 .5rem; }
-  .rcard__body p { font-size: .9rem; color: var(--ink-soft); margin: 0 0 1rem; }
-  .rcard__meta { margin-top: auto; font-size: .78rem; color: var(--caramel-deep); font-weight: 600; letter-spacing: .02em; }
+  .rcard__body h2 { margin: .15rem 0 .5rem; font-size: 1.35rem; }
+  .rcard__body p { font-size: .92rem; color: var(--ink-soft); margin: 0 0 1rem; }
+  .rcard__meta { margin-top: auto; display: flex; gap: 1rem; font-size: .78rem; color: var(--caramel-deep); font-weight: 600; letter-spacing: .02em; }
   @media (max-width: 900px) { .recetas__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .recetas__grid { grid-template-columns: 1fr; } }
 </style>

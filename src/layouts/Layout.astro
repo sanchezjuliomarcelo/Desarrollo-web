@@ -1,65 +1,80 @@
 ---
 import "../styles/global.css";
-import { site, nav } from "../data/site.js";
+import { site, nav, waLink } from "../data/site.js";
 import SocialIcon from "../components/SocialIcon.astro";
 
-const { title, description, path = "", image = "/og-cover.jpg", jsonld } = Astro.props;
-const fullTitle = title ? `${title} · ${site.brand}` : `${site.name} · ${site.role}`;
+const { title, description, path = "", image = "/og-cover.jpg", imageAlt, jsonld } = Astro.props;
+const fullTitle = title ? `${title} · ${site.brand}` : `${site.signature} · ${site.role}`;
 const desc = description || site.tagline;
 const canonical = new URL(path, Astro.site).href;
 const ogImage = new URL(image, Astro.site).href;
+const ogImageAlt = imageAlt || `${site.signature} — ${site.role}`;
+const origin = Astro.site?.href;
 
-// Perfil profesional (schema.org Person) — posiciona a Flor como referente
-// en pastelería y chocolatería, no como un comercio.
-const personSchema = {
+// Entidades estables del sitio: Person (Flor) + WebSite, con @id reutilizable.
+const personId = `${origin}#person`;
+const graph = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "María Florencia Miro",
-  alternateName: "Flor Miro",
-  jobTitle: ["Chef Pâtissier", "Chocolatier"],
-  description:
-    "Chef pâtissier y chocolatier con más de veinte años de oficio. Pastelería francesa, clásicos argentinos y chocolatería de autor.",
-  url: Astro.site?.href,
-  knowsAbout: [
-    "Pastelería francesa",
-    "Chocolatería",
-    "Panadería",
-    "Repostería argentina",
-    "Macarons",
-    "Bombonería",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: site.legalName,
+      alternateName: [site.signature, site.brand],
+      jobTitle: ["Chef Pâtissier", "Chocolatier"],
+      description:
+        "Chef pâtissier y chocolatier con más de veinte años de oficio. Pastelería francesa, clásicos argentinos y chocolatería de autor.",
+      url: origin,
+      knowsAbout: [
+        "Pastelería francesa", "Chocolatería", "Panadería",
+        "Repostería argentina", "Macarons", "Bombonería",
+      ],
+      alumniOf: [
+        { "@type": "EducationalOrganization", name: "UTHGRA" },
+        { "@type": "EducationalOrganization", name: "Ott Educación Superior" },
+      ],
+      homeLocation: { "@type": "Place", name: site.location },
+      sameAs: [site.instagram.url, site.facebook.url],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${origin}#website`,
+      url: origin,
+      name: site.brand,
+      inLanguage: "es-AR",
+      publisher: { "@id": personId },
+    },
   ],
-  alumniOf: [
-    { "@type": "EducationalOrganization", name: "UTHGRA" },
-    { "@type": "EducationalOrganization", name: "Ott Educación Superior" },
-  ],
-  homeLocation: { "@type": "Place", name: "Buenos Aires, Argentina" },
-  sameAs: [site.instagram.url, site.facebook.url],
 };
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-AR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.png" type="image/png" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
-    <meta name="author" content={site.name} />
+    <meta name="author" content={site.signature} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Flor Miro" />
+    <meta property="og:site_name" content={site.brand} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={desc} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <meta name="theme-color" content="#2a1c17" />
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
     {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -74,16 +89,15 @@ const personSchema = {
     <header class="masthead" data-header>
       <div class="masthead__inner wrap-wide">
         <a href="/" class="brandmark" aria-label={`${site.brand} — inicio`}>
-          <span class="brandmark__name">Flor Miro</span>
-          <span class="brandmark__role">Pâtisserie · Chocolaterie</span>
+          <span class="brandmark__name">{site.brand}</span>
+          <span class="brandmark__role">{site.role}</span>
         </a>
 
-        <input type="checkbox" id="navtoggle" class="navtoggle" aria-hidden="true" />
-        <label for="navtoggle" class="burger" aria-label="Abrir menú">
+        <button type="button" class="burger" data-nav-toggle aria-expanded="false" aria-controls="sitenav" aria-label="Abrir menú">
           <span></span><span></span><span></span>
-        </label>
+        </button>
 
-        <nav class="sitenav" aria-label="Principal">
+        <nav class="sitenav" id="sitenav" aria-label="Principal" data-nav>
           {nav.map((item) => (
             <a
               href={item.href}
@@ -91,7 +105,7 @@ const personSchema = {
               aria-current={Astro.url.pathname === item.href ? "page" : undefined}
             >{item.label}</a>
           ))}
-          <a href={site.instagram.url} class="sitenav__ig" target="_blank" rel="noopener" aria-label="Instagram">
+          <a href={site.instagram.url} class="sitenav__ig" target="_blank" rel="noopener" aria-label="Instagram (abre en pestaña nueva)">
             <SocialIcon name="instagram" />
           </a>
         </nav>
@@ -105,7 +119,7 @@ const personSchema = {
     <footer class="footer">
       <div class="wrap-wide footer__grid">
         <div class="footer__brand">
-          <p class="footer__logo">Flor Miro</p>
+          <p class="footer__logo">{site.brand}</p>
           <p class="footer__role">{site.role}</p>
           <p class="footer__loc">{site.location}</p>
         </div>
@@ -118,21 +132,21 @@ const personSchema = {
         <div class="footer__contact">
           <p class="footer__head">Escribime</p>
           <a href={`mailto:${site.email}`}>{site.email}</a>
-          <a href={site.whatsapp.url} target="_blank" rel="noopener">WhatsApp {site.whatsapp.display}</a>
+          <a href={waLink()} target="_blank" rel="noopener">WhatsApp {site.whatsapp.display}</a>
           <div class="footer__social">
-            <a href={site.instagram.url} target="_blank" rel="noopener" aria-label="Instagram"><SocialIcon name="instagram" /></a>
-            <a href={site.facebook.url} target="_blank" rel="noopener" aria-label="Facebook"><SocialIcon name="facebook" /></a>
-            <a href={site.whatsapp.url} target="_blank" rel="noopener" aria-label="WhatsApp"><SocialIcon name="whatsapp" /></a>
+            <a href={site.instagram.url} target="_blank" rel="noopener" aria-label="Instagram (abre en pestaña nueva)"><SocialIcon name="instagram" /></a>
+            <a href={site.facebook.url} target="_blank" rel="noopener" aria-label="Facebook (abre en pestaña nueva)"><SocialIcon name="facebook" /></a>
+            <a href={waLink()} target="_blank" rel="noopener" aria-label="WhatsApp (abre en pestaña nueva)"><SocialIcon name="whatsapp" /></a>
           </div>
         </div>
       </div>
       <div class="wrap-wide footer__base">
-        <span>© {new Date().getFullYear()} {site.name}</span>
+        <span>© {new Date().getFullYear()} {site.signature}</span>
         <span>Hecho a mano en Buenos Aires</span>
       </div>
     </footer>
 
-    <a href={site.whatsapp.url} class="wafloat" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <a href={waLink()} class="wafloat" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (abre en pestaña nueva)">
       <SocialIcon name="whatsapp" />
     </a>
 
@@ -142,13 +156,26 @@ const personSchema = {
       const onScroll = () => h?.classList.toggle("is-scrolled", window.scrollY > 24);
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
-      // Cerrar menú móvil al navegar.
-      document.querySelectorAll(".sitenav__link").forEach((l) =>
-        l.addEventListener("click", () => {
-          const t = document.getElementById("navtoggle");
-          if (t) t.checked = false;
-        })
+
+      // Menú móvil accesible (botón + aria + Escape + foco).
+      const btn = document.querySelector("[data-nav-toggle]");
+      const navEl = document.querySelector("[data-nav]");
+      const setOpen = (open) => {
+        navEl.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", String(open));
+        btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+        document.body.style.overflow = open && window.matchMedia("(max-width: 820px)").matches ? "hidden" : "";
+      };
+      btn?.addEventListener("click", () => setOpen(btn.getAttribute("aria-expanded") !== "true"));
+      navEl?.querySelectorAll(".sitenav__link").forEach((l) =>
+        l.addEventListener("click", () => setOpen(false))
       );
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && btn?.getAttribute("aria-expanded") === "true") {
+          setOpen(false);
+          btn.focus();
+        }
+      });
     </script>
 
     <style>
@@ -175,8 +202,8 @@ const personSchema = {
       }
       .brandmark { text-decoration: none; display: grid; line-height: 1; }
       .brandmark__name {
-        font-family: var(--serif); font-size: 1.55rem; color: var(--ink);
-        letter-spacing: -.01em;
+        font-family: var(--serif); font-size: 1.5rem; color: var(--ink);
+        letter-spacing: .04em; font-weight: 500;
       }
       .brandmark__role {
         font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
@@ -198,7 +225,7 @@ const personSchema = {
       .sitenav__ig:hover { color: var(--caramel-deep); }
       .sitenav__ig svg { width: 20px; height: 20px; }
 
-      .navtoggle, .burger { display: none; }
+      .burger { display: none; }
 
       @media (max-width: 820px) {
         .burger {
@@ -207,7 +234,7 @@ const personSchema = {
         }
         .burger span {
           width: 26px; height: 2px; background: var(--ink); border-radius: 2px;
-          transition: transform .3s, opacity .3s;
+          transition: transform .3s, opacity .3s, background .3s;
         }
         .sitenav {
           position: fixed; inset: 0; background: var(--ink);
@@ -217,11 +244,10 @@ const personSchema = {
         .sitenav__link { color: var(--cream); font-size: 1.5rem; font-family: var(--serif); }
         .sitenav__link[aria-current="page"] { color: var(--rose); }
         .sitenav__ig { color: var(--cream); }
-        .navtoggle:checked ~ .sitenav { transform: translateX(0); }
-        .navtoggle:checked ~ .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .navtoggle:checked ~ .burger span:nth-child(2) { opacity: 0; }
-        .navtoggle:checked ~ .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        .navtoggle:checked ~ .burger span { background: var(--cream); }
+        .sitenav.is-open { transform: translateX(0); }
+        .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--cream); }
+        .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--cream); }
       }
 
       /* ---- Footer ---- */
@@ -232,7 +258,7 @@ const personSchema = {
         display: grid; grid-template-columns: 1.4fr 1fr 1.2fr; gap: 2.5rem;
         padding-bottom: 3rem; border-bottom: 1px solid var(--line-dark);
       }
-      .footer__logo { font-family: var(--serif); font-size: 2rem; margin: 0 0 .3rem; }
+      .footer__logo { font-family: var(--serif); font-size: 1.9rem; letter-spacing: .04em; margin: 0 0 .3rem; }
       .footer__role { color: var(--rose); margin: 0 0 .3rem; }
       .footer__loc { color: color-mix(in srgb, var(--porcelain) 70%, transparent); margin: 0; font-size: .95rem; }
       .footer__nav, .footer__contact { display: flex; flex-direction: column; gap: .55rem; }

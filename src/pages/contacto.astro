@@ -2,13 +2,19 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import SocialIcon from "../components/SocialIcon.astro";
-import { site } from "../data/site.js";
+import { site, waLink } from "../data/site.js";
 import retrato from "../assets/gallery/bombones-color.jpg";
 
+const commissions = site.contactState === "commissions";
+const lead = commissions
+  ? "La forma más rápida de estar al día con lo que cocino es seguirme en redes. Para una celebración, un encargo especial o una colaboración, escribime por WhatsApp o mail y lo vemos."
+  : "La forma más rápida de estar al día con lo que cocino es seguirme en redes. Para colaboraciones, propuestas profesionales, prensa o eventos, escribime por WhatsApp o mail.";
+const waNote = commissions ? "Para consultas y encargos." : "Para consultas y propuestas.";
+
 const channels = [
-  { icon: "instagram", label: "Instagram", value: `@${site.instagram.user}`, href: site.instagram.url, note: "El día a día, novedades y nuevas propuestas." },
-  { icon: "whatsapp", label: "WhatsApp", value: site.whatsapp.display, href: site.whatsapp.url, note: "Para consultas rápidas y encargos." },
-  { icon: "facebook", label: "Facebook", value: site.facebook.user, href: site.facebook.url, note: "Más de mi trabajo y comunidad." },
+  { icon: "instagram", label: "Instagram", value: `@${site.instagram.user}`, href: site.instagram.url, note: "El día a día, novedades y lo que sale del horno." },
+  { icon: "whatsapp", label: "WhatsApp", value: site.whatsapp.display, href: waLink(), note: waNote },
+  { icon: "facebook", label: "Facebook", value: site.facebook.user, href: site.facebook.url, note: "Más de mi trabajo." },
 ];
 ---
 
@@ -18,10 +24,7 @@ const channels = [
       <div class="contact__text">
         <p class="kicker">Hablemos</p>
         <h1>Dónde encontrarme</h1>
-        <p class="contact__lead">
-          La forma más rápida de estar al día con lo que cocino es seguirme en redes. Para consultas,
-          colaboraciones o encargos, escribime por WhatsApp o mail y te respondo.
-        </p>
+        <p class="contact__lead">{lead}</p>
 
         <ul class="channels">
           {channels.map((c) => (
@@ -57,7 +60,7 @@ const channels = [
 
       <figure class="contact__photo">
         <Image src={retrato} alt="Bombones pintados a mano" widths={[500, 800]} sizes="(max-width:800px) 90vw, 440px" loading="eager" />
-        <figcaption>Cada propuesta está pensada para paladares exigentes.</figcaption>
+        <figcaption>Cada pieza se arma y se termina a mano.</figcaption>
       </figure>
     </div>
   </section>
@@ -75,7 +78,7 @@ const channels = [
     padding: 1.1rem 1.3rem; background: var(--cream); border: 1px solid var(--line);
     border-radius: var(--radius); transition: border-color .25s, transform .25s, box-shadow .25s;
   }
-  .channel:hover { border-color: var(--caramel); transform: translateX(3px); box-shadow: 0 10px 24px rgba(42,28,23,.08); }
+  .channel:hover { border-color: var(--caramel-deep); transform: translateX(3px); box-shadow: 0 10px 24px rgba(42,28,23,.08); }
   .channel__icon { flex: none; width: 44px; height: 44px; display: grid; place-items: center; background: var(--ink); color: var(--cream); border-radius: 50%; }
   .channel__icon svg { width: 22px; height: 22px; }
   .channel__text { display: grid; flex: 1; }

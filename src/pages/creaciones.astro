@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Gallery from "../components/Gallery.astro";
 import { creations } from "../data/creations.js";
+import { publishedSlugs } from "../data/recipes.js";
 import { categories } from "../data/site.js";
 
 const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter((x) => x.cat === c.id).length]));
@@ -13,8 +14,8 @@ const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter(
       <p class="kicker">Portfolio</p>
       <h1>Creaciones</h1>
       <p class="pagehead__lead">
-        Una selección de lo que sale de mi cocina. Tocá cualquier imagen para verla en grande;
-        usá los filtros para recorrer por tipo.
+        Una selección de lo que sale de mi cocina. Tocá cualquier imagen para verla en grande y, cuando
+        hay receta, llegar directo a ella. Usá los filtros para recorrer por tipo.
       </p>
       <ul class="pagehead__stats">
         {categories.map((c) => <li><strong>{counts[c.id]}</strong> {c.label}</li>)}
@@ -24,7 +25,7 @@ const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter(
 
   <section class="section section--top">
     <div class="wrap-wide">
-      <Gallery items={creations} />
+      <Gallery items={creations} publishedRecipeSlugs={publishedSlugs} />
     </div>
   </section>
 </Layout>

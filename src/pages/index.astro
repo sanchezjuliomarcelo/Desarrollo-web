@@ -2,9 +2,9 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Gallery from "../components/Gallery.astro";
-import { site, categories } from "../data/site.js";
+import { site, categories, waLink, season } from "../data/site.js";
 import { creations } from "../data/creations.js";
-import { recipes } from "../data/recipes.js";
+import { recipes, publishedSlugs } from "../data/recipes.js";
 
 import heroImg from "../assets/gallery/hero-macarons-limon.jpg";
 import catTortas from "../assets/gallery/selva-negra.jpg";
@@ -21,12 +21,22 @@ import huevoGreen from "../assets/gallery/huevo-green.jpg";
 import huevoRocklets from "../assets/gallery/huevo-rocklets.jpg";
 
 const catImg = { tortas: catTortas, tartas: catTartas, chocolateria: catChoco, macarons: catMacarons };
-const featured = creations.filter((c) =>
-  ["Selva Negra", "Macarons pintados", "Tarta de chocolate, higos y pistacho", "Bombones pintados",
-   "Lemon Pie", "Arcoíris", "Rogel", "Box surtido", "Bavaroise de frutilla", "Trufas de café",
-   "Tableta belga 70%", "Key Lime Pie"].includes(c.title)
-).slice(0, 8);
-const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "torta-rogel"].includes(r.slug));
+// Fotos por edición de temporada (se muestran según season.active).
+const seasonImages = {
+  pascuas: [
+    { src: huevoPascua, alt: "Huevo de pascua multicolor pintado a mano" },
+    { src: huevoOrange, alt: "Huevo de pascua naranja de autor" },
+    { src: huevoGreen, alt: "Huevo de pascua verde" },
+    { src: huevoRocklets, alt: "Huevos de chocolate con rocklets" },
+  ],
+};
+const ed = season.editions[season.active];
+const edImages = seasonImages[season.active] || [];
+const featOrder = ["selva-negra", "bombones-galaxia", "higos-pistacho", "macarons-rose",
+  "lemon-pie", "rogel", "arcoiris", "tableta-70"];
+const featured = featOrder.map((s) => creations.find((c) => c.slug === s)).filter(Boolean);
+const teaserRecipes = ["selva-negra", "lemon-pie", "rogel"]
+  .map((s) => recipes.find((r) => r.slug === s)).filter(Boolean);
 ---
 
 <Layout
@@ -35,7 +45,7 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
 >
   <!-- HERO -->
   <section class="hero">
-    <Image src={heroImg} alt="Macarons de limón sobre mármol" class="hero__bg" widths={[800, 1280, 1800, 2400]} sizes="100vw" loading="eager" />
+    <Image src={heroImg} alt="Macarons de limón sobre mármol, con limones frescos" class="hero__bg" widths={[800, 1280, 1800, 2400]} sizes="100vw" loading="eager" fetchpriority="high" />
     <div class="hero__shade"></div>
     <div class="hero__inner wrap-wide">
       <p class="hero__eyebrow">Chef Pâtissier &amp; Chocolatier · Buenos Aires</p>
@@ -46,7 +56,7 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
         <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--ghost btn--on-dark">Seguir en Instagram</a>
       </div>
     </div>
-    <a href="#manifiesto" class="hero__scroll" aria-label="Bajar">Bajar</a>
+    <a href="#manifiesto" class="hero__scroll" aria-label="Descubrí más"><span aria-hidden="true"></span></a>
   </section>
 
   <!-- MANIFIESTO -->
@@ -58,10 +68,10 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
         la mesada, y hace más de veinte años hice de eso una profesión.
       </p>
       <p class="manifesto__body">
-        Ninguna opción es al azar: cada propuesta está pensada para paladares exigentes, buscando el
-        maridaje justo entre los ingredientes que la componen. Lo que ves acá es una selección de ese
-        trabajo —pastelería francesa, clásicos argentinos y chocolatería de autor— hecho a mano, sin
-        químicos ni conservantes añadidos.
+        Nada queda librado al azar: cada preparación busca un equilibrio entre dulzor, acidez y
+        textura, y respeta los tiempos que pide cada masa, cada ganache y cada templado. Lo que ves
+        acá es una selección de ese trabajo —pastelería francesa, clásicos argentinos y chocolatería
+        de autor— armado y terminado a mano.
       </p>
       <p class="manifesto__sign">Flor</p>
     </div>
@@ -99,30 +109,27 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
         </div>
         <a href="/creaciones/" class="btn btn--ghost">Ver todo el portfolio</a>
       </header>
-      <Gallery items={featured} showFilter={false} />
+      <Gallery items={featured} showFilter={false} publishedRecipeSlugs={publishedSlugs} />
     </div>
   </section>
 
-  <!-- TEMPORADA -->
-  <section class="section season">
-    <div class="wrap-wide">
-      <header class="sec-head">
-        <p class="kicker">Ediciones de temporada</p>
-        <h2>Lo que trae cada fecha</h2>
-        <p class="season__lead">
-          Hay creaciones que aparecen una vez al año. En Pascuas, huevos de chocolate pintados a mano,
-          uno distinto del otro. En Navidad, el pan dulce artesanal de amasado lento, con frutos secos
-          y cáscaras cítricas confitadas en casa.
-        </p>
-      </header>
-      <div class="season__grid">
-        <figure><Image src={huevoPascua} alt="Huevo de pascua multicolor pintado a mano" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
-        <figure><Image src={huevoOrange} alt="Huevo de pascua de autor" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
-        <figure><Image src={huevoGreen} alt="Huevo de pascua verde" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
-        <figure><Image src={huevoRocklets} alt="Huevos de chocolate con rocklets" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+  <!-- TEMPORADA (configurable: ver `season` en src/data/site.js) -->
+  {edImages.length > 0 && (
+    <section class="section season" aria-labelledby="season-title">
+      <div class="wrap-wide">
+        <header class="sec-head">
+          <p class="kicker">{ed.kicker}</p>
+          <h2 id="season-title">{ed.title}</h2>
+          <p class="season__lead">{ed.text}</p>
+        </header>
+        <div class="season__grid">
+          {edImages.map((im) => (
+            <figure><Image src={im.src} alt={im.alt} widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- TRAYECTORIA -->
   <section class="section trajectory">
@@ -159,11 +166,11 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
       <div class="rt__grid">
         {teaserRecipes.map((r) => (
           <a href={`/recetas/${r.slug}/`} class="rtcard">
-            <Image src={r.img} alt={r.title} class="rtcard__img" widths={[400, 640]} sizes="(max-width:700px) 90vw, 360px" />
+            <Image src={r.img} alt={r.imageAlt} class="rtcard__img" widths={[400, 640]} sizes="(max-width:700px) 90vw, 360px" />
             <div class="rtcard__body">
               <span class="rtcard__cat">{r.cat}</span>
               <h3>{r.title}</h3>
-              <p>{r.intro}</p>
+              <p>{r.subtitle}</p>
             </div>
           </a>
         ))}
@@ -178,7 +185,7 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
       <p>Todos los días subo propuestas nuevas. Seguime, escribime y charlamos.</p>
       <div class="cta-band__btns">
         <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--light">@{site.instagram.user}</a>
-        <a href={site.whatsapp.url} target="_blank" rel="noopener" class="btn btn--ghost btn--on-dark">WhatsApp</a>
+        <a href={waLink()} target="_blank" rel="noopener" class="btn btn--ghost btn--on-dark">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -203,10 +210,19 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
   .btn--on-dark { color: var(--cream); }
   .hero__scroll {
     position: absolute; left: 50%; bottom: 1.3rem; transform: translateX(-50%);
-    color: var(--cream); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
-    text-decoration: none; writing-mode: vertical-rl; opacity: .7;
+    color: var(--cream); text-decoration: none; opacity: .8;
+    width: 34px; height: 44px; display: grid; place-items: center;
   }
-  .hero__scroll::after { content: ""; display: block; width: 1px; height: 28px; background: currentColor; margin: .5rem auto 0; }
+  .hero__scroll span { width: 1px; height: 30px; background: currentColor; position: relative; }
+  .hero__scroll span::after {
+    content: ""; position: absolute; left: 50%; bottom: 0; width: 8px; height: 8px;
+    border-right: 1px solid currentColor; border-bottom: 1px solid currentColor;
+    transform: translateX(-50%) rotate(45deg);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__scroll span { animation: scrollpulse 1.8s ease-in-out infinite; }
+  }
+  @keyframes scrollpulse { 0%,100% { opacity: .5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(4px); } }
 
   .sec-head { margin-bottom: 2.6rem; max-width: 30ch; }
   .sec-head--row { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; max-width: none; flex-wrap: wrap; }

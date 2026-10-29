@@ -80,6 +80,43 @@ const cortes = [
     </div>
   </section>
 
+  <section class="section criterios">
+    <div class="wrap-wide">
+      <header class="criterios__head">
+        <p class="kicker">Cómo lo miro</p>
+        <h2>Los detalles que deciden el resultado</h2>
+        <p class="criterios__lead">Más que recetas, el oficio es un puñado de criterios que se repiten en casi todo lo que sale de la cocina.</p>
+      </header>
+      <dl class="criterios__grid">
+        <div>
+          <dt>Una buena ganache</dt>
+          <dd>Se emulsiona, no se mezcla: la crema caliente sobre el chocolate, y recién ahí unir desde el centro hasta que queda brillante y lisa. Si se corta, casi siempre es por temperatura o por batir de más.</dd>
+        </div>
+        <div>
+          <dt>El templado del chocolate</dt>
+          <dd>El chocolate bien templado se reconoce al tacto y al oído: desmolda con brillo, se contrae y parte con un quiebre seco. Sin templar queda opaco, blando y con manchas blancas.</dd>
+        </div>
+        <div>
+          <dt>Por qué descansan las masas</dt>
+          <dd>El frío relaja el gluten y firma la manteca. Una sablée que descansó no se encoge en el horno y se estira sin romperse; apurarla es trabajar en contra.</dd>
+        </div>
+        <div>
+          <dt>Acidez contra dulzor</dt>
+          <dd>El limón, el maracuyá, los frutos rojos o el higo no están de adorno: cortan el dulce y hacen que quieras el segundo bocado. Es lo que separa un postre empalagoso de uno equilibrado.</dd>
+        </div>
+        <div>
+          <dt>Un corte limpio</dt>
+          <dd>Un buen corte muestra el trabajo: capas parejas, rellenos que no se chorrean y texturas que se sostienen. Se consigue con frío, cuchillo caliente y paciencia.</dd>
+        </div>
+        <div>
+          <dt>Contraste de texturas</dt>
+          <dd>Crocante y cremoso, húmedo y aireado. Una tarta que es toda blanda aburre; el juego de texturas es la mitad del placer de comerla.</dd>
+        </div>
+      </dl>
+      <p class="criterios__cta"><a href="/recetas/" class="btn btn--ghost">Ver esto aplicado en las recetas</a></p>
+    </div>
+  </section>
+
   <section class="section cortes">
     <div class="wrap-wide">
       <header class="cortes__head">
@@ -127,7 +164,18 @@ const cortes = [
     .disc--rev .disc__fig { order: 0; }
   }
 
-  .cortes { background: var(--cream); }
+  .criterios { background: var(--cream); }
+  .criterios__head { max-width: 46ch; margin-bottom: 2.4rem; }
+  .criterios__head h2 { margin: 0 0 .6rem; }
+  .criterios__lead { color: var(--ink-soft); margin: 0; }
+  .criterios__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.4rem, 3vw, 2.4rem) 2.4rem; }
+  .criterios__grid > div { border-top: 1px solid var(--line); padding-top: 1.1rem; }
+  .criterios__grid dt { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); margin-bottom: .5rem; }
+  .criterios__grid dd { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.6; }
+  .criterios__cta { margin: 2.6rem 0 0; }
+  @media (max-width: 820px) { .criterios__grid { grid-template-columns: 1fr; } }
+
+  .cortes { background: var(--porcelain); }
   .cortes__head { max-width: 46ch; margin-bottom: 2.4rem; }
   .cortes__head h2 { margin: 0 0 .6rem; }
   .cortes__lead { color: var(--ink-soft); margin: 0; }
