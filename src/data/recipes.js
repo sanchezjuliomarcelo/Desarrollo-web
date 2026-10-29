@@ -1,5 +1,5 @@
 // Modelo de recetas data-driven.
-// status: "published" → visible en índice, sitemap y schema.
+// status: "draft" → visible en índice, sitemap y schema.
 //         "draft"     → estructura lista, requiere que Flor valide fórmula/foto.
 // Las cantidades son una versión de casa fiel a la composición documentada de
 // cada creación. No se inventan gramajes "de autor": donde la fórmula exacta
@@ -26,7 +26,7 @@ import bavaroiseChoc from "../assets/recetas/bavaroise-choc.jpg";
 export const recipes = [
   // ───────────────────────── PUBLICADAS ─────────────────────────
   {
-    slug: "lemon-pie", status: "published", cat: "Tartas", cuisine: null, img: lemon,
+    slug: "lemon-pie", status: "draft", cat: "Tartas", cuisine: null, img: lemon,
     title: "Lemon Pie", subtitle: "Sablée de chocolate, curd de limón y merengue",
     imageAlt: "Lemon Pie con merengue flameado sobre una base de sablée de chocolate",
     servings: "8 porciones", moldSize: "Molde de 22–24 cm", difficulty: "Media",
@@ -50,7 +50,7 @@ export const recipes = [
     related: ["key-lime-pie", "tarta-ganache-frutos-rojos"],
   },
   {
-    slug: "rogel", status: "published", cat: "Clásicos argentinos", cuisine: "Argentina", img: rogel,
+    slug: "rogel", status: "draft", cat: "Clásicos argentinos", cuisine: "Argentina", img: rogel,
     title: "Rogel", subtitle: "Discos finos y crocantes, dulce de leche y merengue",
     imageAlt: "Rogel con capas finas, dulce de leche y merengue flameado",
     servings: "10 porciones", moldSize: "Discos de 22 cm", difficulty: "Media",
@@ -74,7 +74,7 @@ export const recipes = [
     related: ["chocotorta", "postre-balcarce-tradicional"],
   },
   {
-    slug: "cheesecake-maracuya", status: "published", cat: "Tartas", cuisine: null, img: cheesecake,
+    slug: "cheesecake-maracuya", status: "draft", cat: "Tartas", cuisine: null, img: cheesecake,
     title: "New York Cheesecake con maracuyá", subtitle: "Base crocante, queso horneado y salsa de maracuyá",
     imageAlt: "New York Cheesecake horneado con salsa de maracuyá por encima",
     servings: "10–12 porciones", moldSize: "Molde desmontable de 22 cm", difficulty: "Media",
@@ -98,7 +98,7 @@ export const recipes = [
     related: ["cheesecake-frutos-rojos", "key-lime-pie"],
   },
   {
-    slug: "cheesecake-frutos-rojos", status: "published", cat: "Tartas", cuisine: null, img: cheesecakeFr,
+    slug: "cheesecake-frutos-rojos", status: "draft", cat: "Tartas", cuisine: null, img: cheesecakeFr,
     title: "New York Cheesecake con frutos rojos", subtitle: "Base crocante, queso horneado y confitura de frutos rojos",
     imageAlt: "New York Cheesecake con una confitura de frutos rojos por encima",
     servings: "10–12 porciones", moldSize: "Molde desmontable de 22 cm", difficulty: "Media",
@@ -122,7 +122,7 @@ export const recipes = [
     related: ["cheesecake-maracuya", "tarta-ganache-frutos-rojos"],
   },
   {
-    slug: "chocotorta", status: "published", cat: "Clásicos argentinos", cuisine: "Argentina", img: chocotorta,
+    slug: "chocotorta", status: "draft", cat: "Clásicos argentinos", cuisine: "Argentina", img: chocotorta,
     title: "Chocotorta con chocolate y efecto terciopelo", subtitle: "Chocolinas, dulce de leche y queso crema, con baño y terciopelo",
     imageAlt: "Chocotorta cuadrada con terciopelo de chocolate con leche",
     servings: "10–12 porciones", moldSize: "Molde de 20 × 20 cm", difficulty: "Fácil",
@@ -146,7 +146,7 @@ export const recipes = [
     related: ["rogel", "torta-brownie-dulce-de-leche"],
   },
   {
-    slug: "torta-brownie-dulce-de-leche", status: "published", cat: "Tortas", cuisine: null, img: brownie,
+    slug: "torta-brownie-dulce-de-leche", status: "draft", cat: "Tortas", cuisine: null, img: brownie,
     title: "Torta Brownie con dulce de leche y merengue", subtitle: "Brownie húmedo, dulce de leche y merengue",
     imageAlt: "Torta brownie con dulce de leche y merengue",
     servings: "10 porciones", moldSize: "Molde de 22 cm", difficulty: "Fácil",
@@ -168,7 +168,7 @@ export const recipes = [
     related: ["chocotorta", "selva-negra"],
   },
   {
-    slug: "tarta-banana-split", status: "published", cat: "Tartas", cuisine: null, img: bananaSplit,
+    slug: "tarta-banana-split", status: "draft", cat: "Tartas", cuisine: null, img: bananaSplit,
     title: "Tarta Banana Split", subtitle: "Sablée, crema, banana y dulce de leche",
     imageAlt: "Tarta Banana Split con dulce de leche y chocolate",
     servings: "8 porciones", moldSize: "Molde de 22 cm", difficulty: "Fácil",
@@ -190,7 +190,7 @@ export const recipes = [
     related: ["rogel", "torta-brownie-dulce-de-leche"],
   },
   {
-    slug: "selva-negra", status: "published", cat: "Tortas", cuisine: "Alemania", img: selvaNegra,
+    slug: "selva-negra", status: "draft", cat: "Tortas", cuisine: "Alemania", img: selvaNegra,
     title: "Selva Negra", subtitle: "Bizcocho de chocolate, kirsch, crema y cerezas",
     imageAlt: "Torta Selva Negra con crema, virutas de chocolate y cerezas",
     servings: "12 porciones", moldSize: "Molde de 22 cm", difficulty: "Media",
@@ -214,7 +214,7 @@ export const recipes = [
     related: ["torta-brownie-dulce-de-leche", "tiramisu"],
   },
   {
-    slug: "torta-arcoiris", status: "published", cat: "Tortas", cuisine: null, img: arcoiris,
+    slug: "torta-arcoiris", status: "draft", cat: "Tortas", cuisine: null, img: arcoiris,
     title: "Torta Arcoíris con crema de queso", subtitle: "Bizcochos de colores y crema de queso",
     imageAlt: "Torta Arcoíris con capas de bizcocho de colores y crema",
     servings: "12 porciones", moldSize: "Moldes de 18–20 cm", difficulty: "Media",
@@ -236,7 +236,7 @@ export const recipes = [
     related: ["selva-negra", "macarons"],
   },
   {
-    slug: "key-lime-pie", status: "published", cat: "Tartas", cuisine: null, img: keyLime,
+    slug: "key-lime-pie", status: "draft", cat: "Tartas", cuisine: null, img: keyLime,
     title: "Key Lime Pie con sablée de vainilla", subtitle: "Sablée de vainilla, relleno de lima y chantilly",
     imageAlt: "Key Lime Pie con crema y ralladura de lima",
     servings: "8 porciones", moldSize: "Molde de 22 cm", difficulty: "Media",
@@ -260,7 +260,7 @@ export const recipes = [
     related: ["lemon-pie", "cheesecake-maracuya"],
   },
   {
-    slug: "tarta-ganache-frutos-rojos", status: "published", cat: "Tartas", cuisine: null, img: frutosRojos,
+    slug: "tarta-ganache-frutos-rojos", status: "draft", cat: "Tartas", cuisine: null, img: frutosRojos,
     title: "Tarta de ganache de chocolate blanco y frutos rojos", subtitle: "Sablée, confitura y ganache de chocolate blanco",
     imageAlt: "Tarta de ganache de chocolate blanco con frutos rojos",
     servings: "8 porciones", moldSize: "Molde de 22 cm", difficulty: "Media",
@@ -284,7 +284,7 @@ export const recipes = [
     related: ["tarta-ganache-arandanos", "cheesecake-frutos-rojos"],
   },
   {
-    slug: "tarta-ganache-arandanos", status: "published", cat: "Tartas", cuisine: null, img: arandanos,
+    slug: "tarta-ganache-arandanos", status: "draft", cat: "Tartas", cuisine: null, img: arandanos,
     title: "Tarta de ganache de chocolate blanco y arándanos", subtitle: "Sablée, confitura de arándanos, ganache blanca y merengue",
     imageAlt: "Tarta de ganache de chocolate blanco y arándanos con picos de merengue",
     servings: "8 porciones", moldSize: "Molde de 22 cm", difficulty: "Media",
@@ -307,7 +307,7 @@ export const recipes = [
     related: ["tarta-ganache-frutos-rojos", "lemon-pie"],
   },
   {
-    slug: "tiramisu", status: "published", cat: "Pastelería francesa", cuisine: "Italia", img: tiramisu,
+    slug: "tiramisu", status: "draft", cat: "Pastelería francesa", cuisine: "Italia", img: tiramisu,
     title: "Tiramisú con efecto terciopelo", subtitle: "Biscuit al café, crema de mascarpone y cobertura de chocolate",
     imageAlt: "Tiramisú con cobertura de chocolate y efecto terciopelo",
     servings: "6–8 porciones", moldSize: "Molde de 20 cm", difficulty: "Media",
@@ -330,7 +330,7 @@ export const recipes = [
     related: ["selva-negra", "chocotorta"],
   },
   {
-    slug: "postre-balcarce-tradicional", status: "published", cat: "Clásicos argentinos", cuisine: "Argentina", img: balcarce,
+    slug: "postre-balcarce-tradicional", status: "draft", cat: "Clásicos argentinos", cuisine: "Argentina", img: balcarce,
     title: "Postre Balcarce tradicional", subtitle: "Bizcocho, almíbar, dulce de leche, crema, merengue y castañas",
     imageAlt: "Postre Balcarce con merengue, dulce de leche y crema",
     servings: "10 porciones", moldSize: "Molde de 22 cm", difficulty: "Media",
@@ -354,7 +354,7 @@ export const recipes = [
     related: ["rogel", "chocotorta"],
   },
   {
-    slug: "macarons", status: "published", cat: "Técnicas", cuisine: "Francia", img: macaronsImg,
+    slug: "macarons", status: "draft", cat: "Técnicas", cuisine: "Francia", img: macaronsImg,
     title: "Macarons: tapas y ganache", subtitle: "La técnica base para tapas lisas y una ganache para rellenar",
     imageAlt: "Macarons de colores en caja",
     servings: "unos 24 macarons", moldSize: "Placa con silicona o papel", difficulty: "Alta",

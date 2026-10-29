@@ -25,6 +25,17 @@ import tartaArandanos from "../assets/gallery/tarta-arandanos.jpg";
 import tartaInvierno from "../assets/gallery/tarta-invierno.jpg";
 import tiramisu from "../assets/gallery/tiramisu.jpg";
 import travelCake from "../assets/gallery/travel-cake.jpg";
+import travelCakeCorte from "../assets/gallery/travel-cake-corte.jpg";
+import carrotCake from "../assets/gallery/carrot-cake.jpg";
+import carrotCakeCorte from "../assets/gallery/carrot-cake-corte.jpg";
+import marquisePistacho from "../assets/gallery/marquise-pistacho.jpg";
+import marquisePistachoCorte from "../assets/gallery/marquise-pistacho-corte.jpg";
+import redVelvet from "../assets/gallery/red-velvet.jpg";
+import redVelvetTop from "../assets/gallery/red-velvet-top.jpg";
+import moka from "../assets/gallery/moka.jpg";
+import mokaCorte from "../assets/gallery/moka-corte.jpg";
+import postreFrambuesa from "../assets/gallery/postre-frambuesa.jpg";
+import postreFrambuesaCorte from "../assets/gallery/postre-frambuesa-corte.jpg";
 import bombonesClasicos from "../assets/gallery/bombones-clasicos.jpg";
 import bombonesColor from "../assets/gallery/bombones-color.jpg";
 import bombonesMaridaje from "../assets/gallery/bombones-maridaje.jpg";
@@ -88,11 +99,54 @@ export const creations = [
   },
   {
     slug: "travel-cake", cat: "tortas", title: "Travel Cake",
-    desc: "Budín de cacao y frutos secos con baño crocante de chocolate y maní, relleno de ganache blanca.",
-    images: [{ src: travelCake, alt: "Travel Cake de chocolate con maní y cerezas" }],
+    desc: "Budín de cacao y frutos secos con baño crocante de chocolate y maní, relleno de ganache blanca, crema y cerezas.",
+    images: [
+      { src: travelCake, alt: "Travel Cake: budín de chocolate con crema, cerezas y rulo de chocolate" },
+      { src: travelCakeCorte, alt: "Travel Cake al corte: budín de cacao con relleno de ganache blanca", label: "El corte" },
+    ],
+  },
+  {
+    slug: "carrot-cake", cat: "tortas", title: "Carrot Cake",
+    desc: "Bizcocho húmedo de zanahoria con nueces y especias, relleno y cobertura de crema de queso.",
+    images: [
+      { src: carrotCake, alt: "Carrot Cake con cobertura de crema de queso y nueces" },
+      { src: carrotCakeCorte, alt: "Carrot Cake al corte: bizcocho de zanahoria con nueces y crema de queso", label: "El corte" },
+    ],
+  },
+  {
+    slug: "marquise-pistacho", cat: "tortas", title: "Marquise de chocolate y pistacho",
+    desc: "Base de brownie, capa de pistacho, mousse de chocolate con leche y cobertura de chocolate con pistachos.",
+    images: [
+      { src: marquisePistacho, alt: "Marquise de chocolate y pistacho con cobertura de chocolate y pistachos" },
+      { src: marquisePistachoCorte, alt: "Marquise al corte: brownie, capa de pistacho y mousse de chocolate", label: "El corte" },
+    ],
+  },
+  {
+    slug: "red-velvet", cat: "tortas", title: "Red Velvet",
+    desc: "Bizcocho rojo húmedo de vainilla y cacao, relleno y decoración de crema de queso.",
+    images: [
+      { src: redVelvet, alt: "Torta Red Velvet con capas rojas y crema de queso, coronada con un macaron" },
+      { src: redVelvetTop, alt: "Red Velvet vista desde arriba: rosetas de crema de queso y roja", label: "La terminación" },
+    ],
+  },
+  {
+    slug: "moka", cat: "tortas", title: "Torta Moka",
+    desc: "Budín de chocolate y café, con glaseado al café y rosetas de crema de manteca al café.",
+    images: [
+      { src: moka, alt: "Torta Moka con glaseado al café y rosetas de crema de manteca" },
+      { src: mokaCorte, alt: "Torta Moka al corte: capas de budín de chocolate y crema al café", label: "El corte" },
+    ],
   },
 
   // ---- Tartas & postres ----
+  {
+    slug: "postre-frambuesa", cat: "tartas", title: "Postre de frambuesa y chocolate blanco",
+    desc: "Biscuit con almíbar, crema de frambuesa y frutos rojos, cobertura de chocolate blanco con efecto terciopelo.",
+    images: [
+      { src: postreFrambuesa, alt: "Postre de frambuesa con terciopelo rosado en degradé" },
+      { src: postreFrambuesaCorte, alt: "Postre de frambuesa al corte: crema de frambuesa, frutos rojos y biscuit", label: "El corte" },
+    ],
+  },
   {
     slug: "higos-pistacho", cat: "tartas", title: "Tarta de chocolate, higos y pistacho", recipeSlug: "tarta-chocolate-higos-pistacho",
     desc: "Sablée de cacao, crema de chocolate blanco y dulce de leche, ganache 70 %, confitura de higos y pistacho.",

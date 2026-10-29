@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import Gallery from "../components/Gallery.astro";
 import { site, categories, waLink, season } from "../data/site.js";
 import { creations } from "../data/creations.js";
-import { recipes, publishedSlugs } from "../data/recipes.js";
+import { publishedRecipes, publishedSlugs } from "../data/recipes.js";
 
 import heroImg from "../assets/gallery/hero-macarons-limon.jpg";
 import catTortas from "../assets/gallery/selva-negra.jpg";
@@ -35,8 +35,8 @@ const edImages = seasonImages[season.active] || [];
 const featOrder = ["selva-negra", "bombones-galaxia", "higos-pistacho", "macarons-rose",
   "lemon-pie", "rogel", "arcoiris", "tableta-70"];
 const featured = featOrder.map((s) => creations.find((c) => c.slug === s)).filter(Boolean);
-const teaserRecipes = ["selva-negra", "lemon-pie", "rogel"]
-  .map((s) => recipes.find((r) => r.slug === s)).filter(Boolean);
+const teaserRecipes = publishedRecipes.slice(0, 3);
+const hasRecipes = teaserRecipes.length > 0;
 ---
 
 <Layout
@@ -161,20 +161,30 @@ const teaserRecipes = ["selva-negra", "lemon-pie", "rogel"]
           <p class="kicker">Para hacer en casa</p>
           <h2>Mis recetas, paso a paso</h2>
         </div>
-        <a href="/recetas/" class="btn btn--ghost">Ver todas las recetas</a>
+        {hasRecipes && <a href="/recetas/" class="btn btn--ghost">Ver todas las recetas</a>}
       </header>
-      <div class="rt__grid">
-        {teaserRecipes.map((r) => (
-          <a href={`/recetas/${r.slug}/`} class="rtcard">
-            <Image src={r.img} alt={r.imageAlt} class="rtcard__img" widths={[400, 640]} sizes="(max-width:700px) 90vw, 360px" />
-            <div class="rtcard__body">
-              <span class="rtcard__cat">{r.cat}</span>
-              <h3>{r.title}</h3>
-              <p>{r.subtitle}</p>
-            </div>
-          </a>
-        ))}
-      </div>
+      {hasRecipes ? (
+        <div class="rt__grid">
+          {teaserRecipes.map((r) => (
+            <a href={`/recetas/${r.slug}/`} class="rtcard">
+              <Image src={r.img} alt={r.imageAlt} class="rtcard__img" widths={[400, 640]} sizes="(max-width:700px) 90vw, 360px" />
+              <div class="rtcard__body">
+                <span class="rtcard__cat">{r.cat}</span>
+                <h3>{r.title}</h3>
+                <p>{r.subtitle}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="rt__soon">
+          <p>
+            Estoy revisando cada receta —cantidades, tiempos y puntos exactos— antes de publicarla. Muy
+            pronto vas a poder cocinarlas en casa. Mientras tanto, mirá el portfolio.
+          </p>
+          <a href="/creaciones/" class="btn btn--solid">Ver creaciones</a>
+        </div>
+      )}
     </div>
   </section>
 
@@ -285,6 +295,8 @@ const teaserRecipes = ["selva-negra", "lemon-pie", "rogel"]
   .rtcard__body h3 { margin: .2rem 0 .5rem; }
   .rtcard__body p { font-size: .9rem; color: var(--ink-soft); margin: 0; }
   @media (max-width: 820px) { .rt__grid { grid-template-columns: 1fr; } }
+  .rt__soon { max-width: 60ch; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.8rem, 4vw, 2.6rem); }
+  .rt__soon p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 1.4rem; }
 
   /* CTA BAND */
   .cta-band { background: var(--ink); color: var(--cream); text-align: center; padding-block: clamp(3.5rem, 8vw, 6rem); }

@@ -3,16 +3,19 @@ import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { publishedRecipes } from "../../data/recipes.js";
 
-const itemList = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: publishedRecipes.map((r, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    url: new URL(`/recetas/${r.slug}/`, Astro.site).href,
-    name: r.title,
-  })),
-};
+const hasRecipes = publishedRecipes.length > 0;
+const itemList = hasRecipes
+  ? {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListElement: publishedRecipes.map((r, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: new URL(`/recetas/${r.slug}/`, Astro.site).href,
+        name: r.title,
+      })),
+    }
+  : null;
 const firstTime = (r) => Object.values(r.times || {})[0];
 ---
 
@@ -35,24 +38,40 @@ const firstTime = (r) => Object.values(r.times || {})[0];
 
   <section class="section section--top">
     <div class="wrap-wide">
-      <div class="recetas__grid">
-        {publishedRecipes.map((r) => (
-          <a href={`/recetas/${r.slug}/`} class="rcard">
-            <div class="rcard__imgwrap">
-              <Image src={r.img} alt={r.imageAlt} class="rcard__img" widths={[400, 640]} sizes="(max-width:600px) 90vw, 360px" />
-            </div>
-            <div class="rcard__body">
-              <span class="rcard__cat">{r.cat}</span>
-              <h2>{r.title}</h2>
-              <p>{r.subtitle}</p>
-              <span class="rcard__meta">
-                {r.difficulty && <span>{r.difficulty}</span>}
-                {firstTime(r) && <span>{firstTime(r)}</span>}
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
+      {hasRecipes ? (
+        <div class="recetas__grid">
+          {publishedRecipes.map((r) => (
+            <a href={`/recetas/${r.slug}/`} class="rcard">
+              <div class="rcard__imgwrap">
+                <Image src={r.img} alt={r.imageAlt} class="rcard__img" widths={[400, 640]} sizes="(max-width:600px) 90vw, 360px" />
+              </div>
+              <div class="rcard__body">
+                <span class="rcard__cat">{r.cat}</span>
+                <h2>{r.title}</h2>
+                <p>{r.subtitle}</p>
+                <span class="rcard__meta">
+                  {r.difficulty && <span>{r.difficulty}</span>}
+                  {firstTime(r) && <span>{firstTime(r)}</span>}
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="recetas__soon">
+          <p class="recetas__soon-kicker">En preparación</p>
+          <h2>Las recetas están en revisión</h2>
+          <p class="recetas__soon-text">
+            Estoy ajustando cada fórmula —cantidades, tiempos y puntos exactos— antes de publicarla, para
+            que lo que cocines en casa salga igual que acá. Mientras tanto, podés ver todo lo que hago en
+            el portfolio o seguir el día a día en Instagram.
+          </p>
+          <div class="recetas__soon-btns">
+            <a href="/creaciones/" class="btn btn--solid">Ver creaciones</a>
+            <a href="/el-oficio/" class="btn btn--ghost">Cómo trabajo</a>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 </Layout>
@@ -62,6 +81,16 @@ const firstTime = (r) => Object.values(r.times || {})[0];
   .pagehead h1 { margin: 0 0 .6rem; }
   .pagehead__lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 60ch; }
   .section--top { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .recetas__soon {
+    max-width: 56ch; margin: 0 auto; text-align: center;
+    background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: clamp(2.4rem, 6vw, 4rem) clamp(1.4rem, 5vw, 3rem);
+  }
+  .recetas__soon-kicker { font-variant: small-caps; letter-spacing: .06em; color: var(--caramel-deep); font-family: var(--serif); font-size: 1.05rem; margin: 0 0 .5rem; }
+  .recetas__soon h2 { margin: 0 0 1rem; }
+  .recetas__soon-text { color: var(--ink-soft); font-size: 1.05rem; margin: 0 auto 1.8rem; }
+  .recetas__soon-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
   .recetas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
   .rcard { text-decoration: none; color: inherit; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; }
