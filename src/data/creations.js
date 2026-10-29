@@ -36,6 +36,15 @@ import moka from "../assets/gallery/moka.jpg";
 import mokaCorte from "../assets/gallery/moka-corte.jpg";
 import postreFrambuesa from "../assets/gallery/postre-frambuesa.jpg";
 import postreFrambuesaCorte from "../assets/gallery/postre-frambuesa-corte.jpg";
+import cremaCielo from "../assets/gallery/crema-del-cielo.jpg";
+import cremaCielo2 from "../assets/gallery/crema-del-cielo-2.jpg";
+import tartaFrutillas from "../assets/gallery/tarta-frutillas.jpg";
+import tartaFrutillas2 from "../assets/gallery/tarta-frutillas-2.jpg";
+import cheesecakeFR from "../assets/gallery/cheesecake-frutos-rojos.jpg";
+import cheesecakeFR2 from "../assets/gallery/cheesecake-frutos-rojos-2.jpg";
+import cheesecakeCB from "../assets/gallery/cheesecake-choco-blanco.jpg";
+import cheesecakeCB2 from "../assets/gallery/cheesecake-choco-blanco-2.jpg";
+import balcarceCorte from "../assets/gallery/balcarce-corte.jpg";
 import bombonesClasicos from "../assets/gallery/bombones-clasicos.jpg";
 import bombonesColor from "../assets/gallery/bombones-color.jpg";
 import bombonesMaridaje from "../assets/gallery/bombones-maridaje.jpg";
@@ -66,7 +75,10 @@ export const creations = [
   {
     slug: "balcarce", cat: "tortas", title: "Postre Balcarce", recipeSlug: "postre-balcarce-tradicional",
     desc: "Merengue, dulce de leche, castañas en almíbar y bizcocho humedecido con almíbar.",
-    images: [{ src: balcarce, alt: "Postre Balcarce con merengue y dulce de leche" }],
+    images: [
+      { src: balcarce, alt: "Torta Balcarce con cobertura de merengue y coco" },
+      { src: balcarceCorte, alt: "Balcarce al corte: bizcocho, dulce de leche, crema y castañas", label: "El corte" },
+    ],
   },
   {
     slug: "rogel", cat: "tortas", title: "Rogel", recipeSlug: "rogel",
@@ -166,9 +178,41 @@ export const creations = [
     images: [{ src: keyLime, alt: "Key Lime Pie con crema y ralladura de lima" }],
   },
   {
-    slug: "cheesecake-maracuya", cat: "tartas", title: "New York Cheesecake", recipeSlug: "cheesecake-maracuya",
-    desc: "Base crocante, relleno de queso horneado y salsa artesanal de maracuyá o frutos rojos.",
+    slug: "cheesecake-maracuya", cat: "tartas", title: "New York Cheesecake de maracuyá", recipeSlug: "cheesecake-maracuya",
+    desc: "Base crocante, relleno de queso horneado y salsa artesanal de maracuyá.",
     images: [{ src: cheesecake, alt: "New York Cheesecake con salsa de maracuyá" }],
+  },
+  {
+    slug: "cheesecake-frutos-rojos", cat: "tartas", title: "New York Cheesecake de frutos rojos",
+    desc: "Queso horneado sobre base crocante, con compota casera de frutos rojos.",
+    images: [
+      { src: cheesecakeFR, alt: "New York Cheesecake con compota de frutos rojos" },
+      { src: cheesecakeFR2, alt: "Cheesecake de frutos rojos visto desde arriba", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "cheesecake-chocolate-blanco", cat: "tartas", title: "Cheesecake de chocolate blanco",
+    desc: "Cheesecake suave de chocolate blanco, terminado con frutos rojos frescos.",
+    images: [
+      { src: cheesecakeCB, alt: "Cheesecake de chocolate blanco con frutos rojos" },
+      { src: cheesecakeCB2, alt: "Cheesecake de chocolate blanco, otra toma", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "tarta-frutillas", cat: "tartas", title: "Tarta de frutillas y crema",
+    desc: "Base crocante, crema y frutillas frescas con arándanos.",
+    images: [
+      { src: tartaFrutillas, alt: "Tarta de frutillas y crema con arándanos" },
+      { src: tartaFrutillas2, alt: "Tarta de frutillas y crema, otra toma", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "crema-del-cielo", cat: "tartas", title: "Postre Crema del Cielo",
+    desc: "Postre de mousse con cobertura de efecto terciopelo en tono celeste.",
+    images: [
+      { src: cremaCielo, alt: "Postre Crema del Cielo con terciopelo celeste" },
+      { src: cremaCielo2, alt: "Postre Crema del Cielo, vista lateral", label: "Otra vista" },
+    ],
   },
   {
     slug: "tarta-ganache-frutos-rojos", cat: "tartas", title: "Tarta de ganache y frutos rojos", recipeSlug: "tarta-ganache-frutos-rojos",
