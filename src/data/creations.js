@@ -22,7 +22,6 @@ import selvaNegraCorte from "../assets/gallery/selva-negra-corte.jpg";
 import tartaHigos from "../assets/gallery/tarta-higos.jpg";
 import tartaHigosCorte from "../assets/gallery/tarta-higos-corte.jpg";
 import tartaArandanos from "../assets/gallery/tarta-arandanos.jpg";
-import tartaInvierno from "../assets/gallery/tarta-invierno.jpg";
 import tiramisu from "../assets/gallery/tiramisu.jpg";
 import travelCake from "../assets/gallery/travel-cake.jpg";
 import travelCakeCorte from "../assets/gallery/travel-cake-corte.jpg";
@@ -61,6 +60,38 @@ import macaronsColor from "../assets/gallery/macarons-color.jpg";
 import macaronsPistacho from "../assets/gallery/macarons-pistacho.jpg";
 import macaronsCafe from "../assets/gallery/macarons-cafe.jpg";
 import macaronsRose from "../assets/gallery/macarons-rose.jpg";
+// Fotos de autor (hero + adicionales)
+import selvaNegra2 from "../assets/gallery/selva-negra-2.jpg";
+import arcoirisHero from "../assets/gallery/arcoiris-hero.jpg";
+import lemonPie2 from "../assets/gallery/lemon-pie-2.jpg";
+import ganacheFrHero from "../assets/gallery/ganache-fr-hero.jpg";
+import bavaroiseHero from "../assets/gallery/bavaroise-hero.jpg";
+import tiramisuCorte from "../assets/gallery/tiramisu-corte.jpg";
+import cremaCieloHero from "../assets/gallery/crema-del-cielo-hero.jpg";
+import frambuesaHero from "../assets/gallery/postre-frambuesa-hero.jpg";
+import frambuesaCorte2 from "../assets/gallery/postre-frambuesa-corte2.jpg";
+import frutillasHero from "../assets/gallery/tarta-frutillas-hero.jpg";
+import frutillas3 from "../assets/gallery/tarta-frutillas-3.jpg";
+import galaxia2 from "../assets/gallery/bombones-galaxia-2.jpg";
+import macaronsBoxHero from "../assets/gallery/macarons-box-hero.jpg";
+import macaronsRose2 from "../assets/gallery/macarons-rose-2.jpg";
+import macaronsSlate from "../assets/gallery/macarons-slate.jpg";
+import macaronsStack from "../assets/gallery/macarons-stack.jpg";
+import macaronsLimon from "../assets/gallery/macarons-limon.jpg";
+import tartaInvierno from "../assets/gallery/tarta-invierno.jpg";
+import tartaInvierno2 from "../assets/gallery/tarta-invierno-2.jpg";
+import entremetChocolate from "../assets/gallery/entremet-chocolate.jpg";
+import entremetChocolate2 from "../assets/gallery/entremet-chocolate-2.jpg";
+import entremetLimon from "../assets/gallery/entremet-limon.jpg";
+import barraDdl from "../assets/gallery/barra-ddl.jpg";
+// Maridaje / para regalar
+import maridajeBombones from "../assets/gallery/maridaje-bombones.jpg";
+import maridajeMacaronsRose from "../assets/gallery/maridaje-macarons-rose.jpg";
+import maridajeGalaxia from "../assets/gallery/maridaje-galaxia.jpg";
+import maridajeFrutillas from "../assets/gallery/maridaje-frutillas.jpg";
+import maridajePisos from "../assets/gallery/maridaje-pisos.jpg";
+import maridajeTrufas from "../assets/gallery/maridaje-trufas.jpg";
+import maridajeChivas from "../assets/gallery/maridaje-chivas.jpg";
 
 export const creations = [
   // ---- Tortas ----
@@ -69,7 +100,8 @@ export const creations = [
     desc: "Tres bizcochos de chocolate con almíbar al kirsch, crema, cerezas al marrasquino y mousse de chocolate.",
     images: [
       { src: selvaNegra, alt: "Torta Selva Negra con crema, virutas de chocolate y cerezas" },
-      { src: selvaNegraCorte, alt: "Selva Negra al corte: capas de bizcocho de chocolate, crema y cerezas", label: "El corte" },
+      { src: selvaNegra2, alt: "Porción de Selva Negra: capas de bizcocho de chocolate, crema y cerezas", label: "El corte" },
+      { src: selvaNegraCorte, alt: "Selva Negra al corte, otra toma", label: "Otra vista" },
     ],
   },
   {
@@ -92,8 +124,24 @@ export const creations = [
     slug: "arcoiris", cat: "tortas", title: "Torta Arcoíris", recipeSlug: "torta-arcoiris",
     desc: "Bizcochos de colores con crema de queso, galletas bañadas en chocolate y macarons.",
     images: [
-      { src: arcoirisCorte, alt: "Torta Arcoíris decorada con frutillas, crema y macarons" },
+      { src: arcoirisHero, alt: "Torta Arcoíris: capas de colores con frutillas, crema y macarons" },
+      { src: arcoirisCorte, alt: "Torta Arcoíris decorada con frutillas, crema y macarons", label: "Decoración" },
       { src: arcoiris, alt: "Torta Arcoíris al corte: capas de bizcocho de colores", label: "El corte" },
+    ],
+  },
+  {
+    slug: "entremet-chocolate", cat: "tortas", title: "Entremet de chocolate",
+    desc: "Mousse de chocolate con corazón cremoso y efecto terciopelo, sobre base crocante.",
+    images: [
+      { src: entremetChocolate, alt: "Entremet de chocolate con efecto terciopelo y decoración de chocolate" },
+      { src: entremetChocolate2, alt: "Entremet de chocolate en formato de domos aterciopelados", label: "Otra versión" },
+    ],
+  },
+  {
+    slug: "barra-ddl", cat: "tortas", title: "Barra de chocolate y dulce de leche",
+    desc: "Entremet rectangular de chocolate con corazón de dulce de leche y terminación de terciopelo.",
+    images: [
+      { src: barraDdl, alt: "Barra de chocolate con dulce de leche que fluye al abrirla" },
     ],
   },
   {
@@ -155,8 +203,44 @@ export const creations = [
     slug: "postre-frambuesa", cat: "tartas", title: "Postre de frambuesa y chocolate blanco",
     desc: "Biscuit con almíbar, crema de frambuesa y frutos rojos, cobertura de chocolate blanco con efecto terciopelo.",
     images: [
-      { src: postreFrambuesa, alt: "Postre de frambuesa con terciopelo rosado en degradé" },
-      { src: postreFrambuesaCorte, alt: "Postre de frambuesa al corte: crema de frambuesa, frutos rojos y biscuit", label: "El corte" },
+      { src: frambuesaHero, alt: "Postre de frambuesa con terciopelo rosado en degradé" },
+      { src: postreFrambuesa, alt: "Postre de frambuesa, vista completa", label: "Entero" },
+      { src: frambuesaCorte2, alt: "Postre de frambuesa al corte: crema de frambuesa, frutos rojos y biscuit", label: "El corte" },
+      { src: postreFrambuesaCorte, alt: "Postre de frambuesa al corte, otra toma", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "tarta-frutillas", cat: "tartas", title: "Tarta de frutillas y crema",
+    desc: "Base crocante, crema y frutillas frescas con arándanos.",
+    images: [
+      { src: frutillasHero, alt: "Tarta de frutillas y crema con arándanos, vista cenital" },
+      { src: frutillas3, alt: "Tarta de frutillas y crema con frutos rojos", label: "Otra vista" },
+      { src: tartaFrutillas, alt: "Tarta de frutillas y crema" },
+      { src: tartaFrutillas2, alt: "Tarta de frutillas y crema, otra toma", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "crema-del-cielo", cat: "tartas", title: "Postre Crema del Cielo",
+    desc: "Postre de mousse con cobertura de efecto terciopelo en tono celeste.",
+    images: [
+      { src: cremaCieloHero, alt: "Postre Crema del Cielo con terciopelo celeste, formato alargado" },
+      { src: cremaCielo, alt: "Postre Crema del Cielo con terciopelo celeste" },
+      { src: cremaCielo2, alt: "Postre Crema del Cielo, vista lateral", label: "Otra vista" },
+    ],
+  },
+  {
+    slug: "entremet-limon", cat: "tartas", title: "Entremet de limón",
+    desc: "Mousse de limón con efecto terciopelo claro, ralladura de lima y base crocante.",
+    images: [
+      { src: entremetLimon, alt: "Entremet de limón con terciopelo claro y ralladura de lima" },
+    ],
+  },
+  {
+    slug: "tarta-invierno", cat: "tartas", title: "Tarta de invierno",
+    desc: "Edición de temporada: cobertura azul con copos de nieve y picos de merengue sobre sablée.",
+    images: [
+      { src: tartaInvierno, alt: "Tarta de invierno con copos de nieve y merengue sobre fondo azul" },
+      { src: tartaInvierno2, alt: "Detalle de la tarta de invierno: copos de nieve y picos de merengue", label: "El detalle" },
     ],
   },
   {
@@ -170,7 +254,10 @@ export const creations = [
   {
     slug: "lemon-pie", cat: "tartas", title: "Lemon Pie", recipeSlug: "lemon-pie",
     desc: "Sablée de chocolate semiamargo, curd de limón y merengue flameado.",
-    images: [{ src: lemonPie, alt: "Lemon Pie con merengue sobre sablée de chocolate" }],
+    images: [
+      { src: lemonPie, alt: "Lemon Pie con merengue sobre sablée de chocolate" },
+      { src: lemonPie2, alt: "Lemon Pie con rosetas de crema, azúcar impalpable y kumquats", label: "Otra versión" },
+    ],
   },
   {
     slug: "key-lime-pie", cat: "tartas", title: "Key Lime Pie", recipeSlug: "key-lime-pie",
@@ -199,38 +286,29 @@ export const creations = [
     ],
   },
   {
-    slug: "tarta-frutillas", cat: "tartas", title: "Tarta de frutillas y crema",
-    desc: "Base crocante, crema y frutillas frescas con arándanos.",
-    images: [
-      { src: tartaFrutillas, alt: "Tarta de frutillas y crema con arándanos" },
-      { src: tartaFrutillas2, alt: "Tarta de frutillas y crema, otra toma", label: "Otra vista" },
-    ],
-  },
-  {
-    slug: "crema-del-cielo", cat: "tartas", title: "Postre Crema del Cielo",
-    desc: "Postre de mousse con cobertura de efecto terciopelo en tono celeste.",
-    images: [
-      { src: cremaCielo, alt: "Postre Crema del Cielo con terciopelo celeste" },
-      { src: cremaCielo2, alt: "Postre Crema del Cielo, vista lateral", label: "Otra vista" },
-    ],
-  },
-  {
     slug: "tarta-ganache-frutos-rojos", cat: "tartas", title: "Tarta de ganache y frutos rojos", recipeSlug: "tarta-ganache-frutos-rojos",
     desc: "Sablée, confitura casera de frutos rojos, ganache de chocolate blanco y crema.",
-    images: [{ src: ganache, alt: "Tarta de ganache de chocolate blanco y frutos rojos" }],
+    images: [
+      { src: ganacheFrHero, alt: "Tarta de ganache y frutos rojos con glaseado rosado y rosetas de crema" },
+      { src: ganache, alt: "Tarta de ganache de chocolate blanco y frutos rojos", label: "Otra vista" },
+    ],
   },
   {
     slug: "bavaroise-frutillas", cat: "tartas", title: "Bavaroise de frutillas", recipeSlug: "bavaroise-de-frutillas",
     desc: "Bizcocho húmedo, crema de vainilla, crema de frutillas, cobertura de chocolate blanco y efecto terciopelo.",
     images: [
-      { src: bavaroiseCorte, alt: "Bavaroise de frutillas con terciopelo rosado" },
+      { src: bavaroiseHero, alt: "Bavaroise de frutillas con terciopelo rosado" },
+      { src: bavaroiseCorte, alt: "Bavaroise de frutillas, otra toma", label: "Otra vista" },
       { src: bavaroise, alt: "Bavaroise de frutillas al corte: capas de crema", label: "El corte" },
     ],
   },
   {
     slug: "tiramisu", cat: "tartas", title: "Tiramisú con efecto terciopelo", recipeSlug: "tiramisu",
     desc: "Biscuit al café, crema de mascarpone, cacao y cobertura 54 % con efecto terciopelo.",
-    images: [{ src: tiramisu, alt: "Tiramisú con cobertura de chocolate y efecto terciopelo" }],
+    images: [
+      { src: tiramisu, alt: "Tiramisú con cobertura de chocolate y efecto terciopelo" },
+      { src: tiramisuCorte, alt: "Tiramisú al corte: biscuit al café y crema de mascarpone", label: "El corte" },
+    ],
   },
   {
     slug: "orange-pie", cat: "tartas", title: "Orange Pie",
@@ -252,7 +330,10 @@ export const creations = [
   {
     slug: "bombones-galaxia", cat: "chocolateria", title: "Bombones galaxia",
     desc: "Rellenos pintados a mano con manteca de cacao coloreada, en una paleta de nebulosas.",
-    images: [{ src: bombonesGalaxia, alt: "Bombones pintados a mano con motivos de galaxia" }],
+    images: [
+      { src: bombonesGalaxia, alt: "Bombones pintados a mano con motivos de galaxia" },
+      { src: galaxia2, alt: "Estuche de bombones galaxia en una paleta de colores", label: "El estuche" },
+    ],
   },
   {
     slug: "trufas-chocolate", cat: "chocolateria", title: "Trufas de chocolate",
@@ -307,17 +388,32 @@ export const creations = [
   {
     slug: "macarons-rose", cat: "macarons", title: "Macarons & rosé",
     desc: "Tapas de frutos rojos y vainilla, para compartir con una copa.",
-    images: [{ src: macaronsRose, alt: "Macarons de frutos rojos y vainilla con una copa de rosé" }],
+    images: [
+      { src: macaronsRose, alt: "Macarons de frutos rojos y vainilla con una copa de rosé" },
+      { src: macaronsRose2, alt: "Macarons rosados en primer plano", label: "El detalle" },
+    ],
   },
   {
     slug: "macarons-box", cat: "macarons", title: "Box surtido", recipeSlug: "macarons",
     desc: "Frutos rojos, limón, pistacho, vainilla de Madagascar, Marroc, café y más, según disponibilidad.",
-    images: [{ src: macaronsBox, alt: "Box de macarons surtidos" }],
+    images: [
+      { src: macaronsBoxHero, alt: "Box de macarons surtidos con guía de sabores" },
+      { src: macaronsBox, alt: "Box de macarons surtidos", label: "Otra vista" },
+      { src: macaronsSlate, alt: "Macarons amarillos y rosados sobre pizarra", label: "El detalle" },
+    ],
+  },
+  {
+    slug: "macarons-limon", cat: "macarons", title: "Macarons de limón",
+    desc: "Ganache de limón entre tapas de almendra, con cítricos frescos.",
+    images: [{ src: macaronsLimon, alt: "Macarons de limón con limones frescos" }],
   },
   {
     slug: "macarons-mega", cat: "macarons", title: "Mega box",
     desc: "Treinta tapas de almendra de colores, sabores surtidos.",
-    images: [{ src: macaronsColor, alt: "Caja grande de macarons de colores" }],
+    images: [
+      { src: macaronsColor, alt: "Caja grande de macarons de colores" },
+      { src: macaronsStack, alt: "Torre de macarons de colores", label: "El detalle" },
+    ],
   },
   {
     slug: "macarons-pistacho", cat: "macarons", title: "Macarons de pistacho",
@@ -329,4 +425,16 @@ export const creations = [
     desc: "Ganache de café, para la merienda o el cierre.",
     images: [{ src: macaronsCafe, alt: "Macarons de café" }],
   },
+];
+
+// Fotos "para regalar / maridaje": creaciones presentadas con una bebida para acompañar.
+// Se muestran en un bloque editorial aparte, no entran a la grilla filtrable.
+export const maridaje = [
+  { src: maridajeMacaronsRose, alt: "Box de macarons con una botella de rosé, listo para regalar" },
+  { src: maridajeBombones, alt: "Caja de bombones artesanales con licores para maridar" },
+  { src: maridajeTrufas, alt: "Trufas artesanales con chocolate Callebaut, amaretto y whisky" },
+  { src: maridajeGalaxia, alt: "Bombones galaxia junto a un whisky de malta" },
+  { src: maridajePisos, alt: "Pisos de macarons con una copa de espumante" },
+  { src: maridajeFrutillas, alt: "Macarons de frutilla con espumante rosado y frutillas frescas" },
+  { src: maridajeChivas, alt: "Mesa dulce para compartir: torta, bombones y tableta con un whisky" },
 ];

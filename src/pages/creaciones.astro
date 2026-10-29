@@ -1,9 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Gallery from "../components/Gallery.astro";
-import { creations } from "../data/creations.js";
+import { creations, maridaje } from "../data/creations.js";
 import { publishedSlugs } from "../data/recipes.js";
-import { categories } from "../data/site.js";
+import { categories, site } from "../data/site.js";
 
 const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter((x) => x.cat === c.id).length]));
 ---
@@ -28,6 +29,31 @@ const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter(
       <Gallery items={creations} publishedRecipeSlugs={publishedSlugs} />
     </div>
   </section>
+
+  <!-- PARA REGALAR / MARIDAJE -->
+  <section class="section maridaje" aria-labelledby="maridaje-title">
+    <div class="wrap-wide">
+      <header class="maridaje__head">
+        <p class="kicker">Para regalar</p>
+        <h2 id="maridaje-title">Una caja y algo para brindar</h2>
+        <p class="maridaje__lead">
+          Muchas de estas creaciones también se arman para regalar: cajas de bombones, trufas o macarons
+          pensadas para acompañar un café, un licor o una copa. La idea es simple —algo rico para compartir
+          un buen momento.
+        </p>
+      </header>
+      <div class="maridaje__grid">
+        {maridaje.map((m, i) => (
+          <figure class={`mcard ${i % 5 === 0 ? "mcard--wide" : ""}`}>
+            <Image src={m.src} alt={m.alt} widths={[400, 700, 1000]} sizes="(max-width:700px) 92vw, 440px" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <p class="maridaje__cta">
+        <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--solid">Ver más en Instagram</a>
+      </p>
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -38,4 +64,22 @@ const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter(
   .pagehead__stats li { font-size: .95rem; color: var(--ink-soft); }
   .pagehead__stats strong { font-family: var(--serif); font-size: 1.6rem; color: var(--caramel-deep); display: inline-block; margin-right: .3rem; }
   .section--top { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .maridaje { background: var(--ink); color: var(--cream); }
+  .maridaje__head { max-width: 56ch; margin-bottom: 2.4rem; }
+  .maridaje__head h2 { color: var(--cream); margin: 0 0 .7rem; }
+  .maridaje .kicker { color: var(--rose); }
+  .maridaje .kicker::before { background: var(--rose); }
+  .maridaje__lead { color: color-mix(in srgb, var(--cream) 82%, transparent); margin: 0; font-size: 1.05rem; }
+  .maridaje__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; grid-auto-flow: dense; }
+  .mcard { margin: 0; border-radius: var(--radius); overflow: hidden; background: color-mix(in srgb, var(--cream) 8%, transparent); }
+  .mcard img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .mcard--wide { grid-column: span 2; }
+  .mcard--wide img { aspect-ratio: 16/10; }
+  .mcard:hover img { transform: scale(1.04); }
+  .maridaje__cta { margin: 2.4rem 0 0; }
+  @media (max-width: 760px) {
+    .maridaje__grid { grid-template-columns: 1fr 1fr; }
+    .mcard--wide { grid-column: span 2; }
+  }
 </style>
