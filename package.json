@@ -1,11 +1,16 @@
 {
   "name": "flormiro",
-  "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "4.16.18",
+    "sharp": "0.33.5"
+  }
 }

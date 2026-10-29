@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site.js";
+import retrato from "../assets/portraits/flor-retrato.jpg";
+import diploma from "../assets/portraits/flor-diploma.jpg";
+import bartender from "../assets/portraits/bartender.jpg";
+import betular from "../assets/portraits/con-betular.jpg";
+import villar from "../assets/portraits/con-villar.jpg";
+import nari from "../assets/portraits/con-nari.jpg";
+import garcia from "../assets/portraits/con-garcia.jpg";
+import rise from "../assets/portraits/con-rise.jpg";
+import canba from "../assets/portraits/con-canba.jpg";
+
+const mentores = [
+  { img: betular, name: "Damián Betular" },
+  { img: villar, name: "Pamela Villar" },
+  { img: nari, name: "Gustavo Nari" },
+  { img: garcia, name: "Luciano García" },
+  { img: rise, name: "Matías Rise" },
+  { img: canba, name: "Mariano Canba" },
+];
+---
+
+<Layout title="Sobre Flor" description="La historia de Florencia Miro, chef pâtissier y chocolatier de Buenos Aires." path="/sobre-flor/">
+  <section class="intro">
+    <div class="wrap-wide intro__grid">
+      <div class="intro__text">
+        <p class="kicker">Hola, soy Flor</p>
+        <h1>De pararme en puntitas de pie<br /> a vivir de la pastelería</h1>
+        <p class="intro__lead">
+          Desde muy chica tuve un amor innato por la cocina. Me subía a una silla para ver a quien
+          estuviera cocinando, ansiosa por ayudar. Con el tiempo me convertí en la que armaba los
+          menús de los cumpleaños familiares, y a los 18 decidí que esto iba a ser mi oficio.
+        </p>
+      </div>
+      <figure class="intro__photo">
+        <Image src={retrato} alt="Florencia Miro" widths={[500, 800]} sizes="(max-width:800px) 90vw, 440px" loading="eager" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section story">
+    <div class="wrap story__inner">
+      <div class="story__col">
+        <p>
+          A los 18 empecé a estudiar gastronomía y me dediqué a servicios de catering, mesas dulces y
+          tortas decoradas. Egresé del <strong>UTHGRA en 2003</strong> y seguí formándome en escuelas
+          de reconocimiento internacional, en técnicas de pastelería, panadería, chocolatería y
+          coctelería —de la mano de grandes maestros y de la valiosísima experiencia de la prueba y el
+          error, porque no hay mejor forma de aprender que de los propios errores.
+        </p>
+        <p>
+          Hice catering para eventos masivos, trabajé para televisión y elaboré pastelería profesional
+          para empresas y particulares. En un momento decidí emprender mi propio proyecto online:
+          bebidas, tortas, macarons y bombones.
+        </p>
+        <blockquote class="story__quote">
+          “Más allá de la necesidad de alimentarnos, la comida y la bebida nos unen, nos invitan a
+          compartir buenos momentos. Esa pasión me inspiró a ofrecer experiencias para disfrutar en
+          casa —con tu pareja, familia, amigos, o en tu exclusiva soledad— porque los buenos momentos
+          son los que uno mismo crea.”
+        </blockquote>
+        <p>
+          Hoy mi deseo es transmitir esa pasión compartiendo lo que hago y mis recetas, para que todos
+          puedan disfrutar cocinando. En constante capacitación con los mejores profesionales, busco
+          traer propuestas nuevas todos los días.
+        </p>
+      </div>
+      <aside class="story__side">
+        <figure><Image src={diploma} alt="Flor recibiendo su diploma" widths={[300, 460]} sizes="(max-width:800px) 45vw, 240px" /></figure>
+        <figure><Image src={bartender} alt="Flor detrás de la barra" widths={[300, 460]} sizes="(max-width:800px) 45vw, 240px" /></figure>
+        <ul class="story__facts">
+          <li><strong>2003</strong> Egresada del UTHGRA</li>
+          <li><strong>20+</strong> años de oficio</li>
+          <li><strong>4</strong> disciplinas: pastelería, panadería, chocolatería y coctelería</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section mentors">
+    <div class="wrap-wide">
+      <header class="mentors__head">
+        <p class="kicker">Aprendiendo de los mejores</p>
+        <h2>Encuentros que dejan huella</h2>
+        <p class="mentors__lead">Parte de formarse es cruzarse con referentes de la cocina y la pastelería. Algunos de esos encuentros:</p>
+      </header>
+      <div class="mentors__grid">
+        {mentores.map((m) => (
+          <figure class="mentor">
+            <Image src={m.img} alt={`Flor junto a ${m.name}`} widths={[300, 480]} sizes="(max-width:700px) 45vw, 300px" />
+            <figcaption>{m.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-band__inner">
+      <h2>Charlemos</h2>
+      <p>Para consultas, colaboraciones o simplemente saludar.</p>
+      <div class="cta-band__btns">
+        <a href="/contacto/" class="btn btn--light">Ir a contacto</a>
+        <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--ghost btn--on-dark">Instagram</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro { background: var(--cream); padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .intro__grid { display: grid; grid-template-columns: 1.2fr .9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  .intro h1 { margin: 0 0 1.2rem; }
+  .intro__lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 50ch; }
+  .intro__photo { margin: 0; border-radius: var(--radius); overflow: hidden; }
+  .intro__photo img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+  @media (max-width: 820px) { .intro__grid { grid-template-columns: 1fr; } .intro__photo { max-width: 420px; } }
+
+  .story__inner { display: grid; grid-template-columns: 1.5fr .9fr; gap: clamp(2rem, 5vw, 4rem); }
+  .story__col p { font-size: 1.08rem; color: var(--ink-soft); }
+  .story__col strong { color: var(--ink); }
+  .story__quote {
+    margin: 1.8rem 0; padding: 0 0 0 1.4rem; border-left: 2px solid var(--caramel);
+    font-family: var(--serif); font-style: italic; font-size: 1.35rem; line-height: 1.4; color: var(--ink);
+  }
+  .story__side { display: grid; gap: 1rem; align-content: start; }
+  .story__side figure { margin: 0; border-radius: var(--radius); overflow: hidden; }
+  .story__side img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+  .story__facts { list-style: none; padding: 1.4rem; margin: 0; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); display: grid; gap: .9rem; }
+  .story__facts li { font-size: .92rem; color: var(--ink-soft); line-height: 1.3; }
+  .story__facts strong { font-family: var(--serif); font-size: 1.5rem; color: var(--caramel-deep); display: block; }
+  @media (max-width: 820px) { .story__inner { grid-template-columns: 1fr; } .story__side { grid-template-columns: 1fr 1fr; } .story__facts { grid-column: 1 / -1; } }
+
+  .mentors { background: var(--cream); }
+  .mentors__head { max-width: 46ch; margin-bottom: 2.4rem; }
+  .mentors__head h2 { margin: 0 0 .6rem; }
+  .mentors__lead { color: var(--ink-soft); margin: 0; }
+  .mentors__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .mentor { margin: 0; }
+  .mentor img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+  .mentor figcaption { font-family: var(--serif); font-size: 1.05rem; margin-top: .6rem; color: var(--ink); }
+  @media (max-width: 700px) { .mentors__grid { grid-template-columns: 1fr 1fr; } }
+
+  .cta-band { background: var(--ink); color: var(--cream); text-align: center; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .cta-band h2 { color: var(--cream); margin-bottom: .6rem; }
+  .cta-band p { color: color-mix(in srgb, var(--cream) 80%, transparent); margin: 0 auto 1.8rem; }
+  .cta-band__inner { max-width: 620px; }
+  .cta-band__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+</style>

@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import { recipes, recipeCategories } from "../../data/recipes.js";
+---
+
+<Layout title="Recetas" description="Recetas de pastelería y clásicos argentinos, paso a paso, por Florencia Miro." path="/recetas/">
+  <section class="pagehead">
+    <div class="wrap-wide">
+      <p class="kicker">Para hacer en casa</p>
+      <h1>Recetas</h1>
+      <p class="pagehead__lead">
+        Pastelería francesa, tartas y clásicos argentinos explicados paso a paso. Elegí una, animate
+        y disfrutá tu propio momento.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--top">
+    <div class="wrap-wide">
+      <div class="recetas__grid" data-recetas>
+        {recipes.map((r) => (
+          <a href={`/recetas/${r.slug}/`} class="rcard" data-cat={r.cat}>
+            <div class="rcard__imgwrap">
+              <Image src={r.img} alt={r.title} class="rcard__img" widths={[400, 640]} sizes="(max-width:600px) 90vw, 360px" />
+            </div>
+            <div class="rcard__body">
+              <span class="rcard__cat">{r.cat}</span>
+              <h3>{r.title}</h3>
+              <p>{r.intro}</p>
+              <span class="rcard__meta">{r.ingredientes.length} ingredientes · {r.preparacion.length} pasos</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pagehead { background: var(--cream); padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); }
+  .pagehead h1 { margin: 0 0 .6rem; }
+  .pagehead__lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 56ch; }
+  .section--top { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .recetas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+  .rcard { text-decoration: none; color: inherit; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s; }
+  .rcard:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(42,28,23,.12); }
+  .rcard__imgwrap { overflow: hidden; }
+  .rcard__img { width: 100%; aspect-ratio: 16/10; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .rcard:hover .rcard__img { transform: scale(1.05); }
+  .rcard__body { padding: 1.2rem 1.3rem 1.4rem; display: flex; flex-direction: column; flex: 1; }
+  .rcard__cat { font-variant: small-caps; letter-spacing: .04em; color: var(--caramel-deep); font-family: var(--serif); font-size: 1rem; }
+  .rcard__body h3 { margin: .15rem 0 .5rem; }
+  .rcard__body p { font-size: .9rem; color: var(--ink-soft); margin: 0 0 1rem; }
+  .rcard__meta { margin-top: auto; font-size: .78rem; color: var(--caramel-deep); font-weight: 600; letter-spacing: .02em; }
+  @media (max-width: 900px) { .recetas__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .recetas__grid { grid-template-columns: 1fr; } }
+</style>

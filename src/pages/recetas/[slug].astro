@@ -1,0 +1,109 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import { recipes } from "../../data/recipes.js";
+import { site } from "../../data/site.js";
+
+export function getStaticPaths() {
+  return recipes.map((r) => ({ params: { slug: r.slug }, props: { recipe: r } }));
+}
+const { recipe } = Astro.props;
+const idx = recipes.findIndex((r) => r.slug === recipe.slug);
+const next = recipes[(idx + 1) % recipes.length];
+---
+
+<Layout title={recipe.title} description={recipe.intro} path={`/recetas/${recipe.slug}/`}>
+  <article class="recipe">
+    <header class="recipe__hero">
+      <div class="wrap recipe__hero-inner">
+        <a href="/recetas/" class="recipe__back">← Todas las recetas</a>
+        <p class="recipe__cat">{recipe.cat}</p>
+        <h1>{recipe.title}</h1>
+        {recipe.intro && <p class="recipe__intro">{recipe.intro}</p>}
+        <ul class="recipe__meta">
+          <li><span>Ingredientes</span><strong>{recipe.ingredientes.length}</strong></li>
+          <li><span>Pasos</span><strong>{recipe.preparacion.length}</strong></li>
+          {recipe.tiempo && <li><span>Reposo / tiempo</span><strong>{recipe.tiempo}</strong></li>}
+        </ul>
+      </div>
+    </header>
+
+    <figure class="recipe__photo">
+      <Image src={recipe.img} alt={recipe.title} widths={[640, 1000, 1400]} sizes="(max-width:1100px) 100vw, 1040px" loading="eager" />
+    </figure>
+
+    <div class="wrap recipe__body">
+      <section class="recipe__ingredients" aria-labelledby="ing">
+        <h2 id="ing">Ingredientes</h2>
+        <ul>
+          {recipe.ingredientes.map((i) => <li>{i}</li>)}
+        </ul>
+      </section>
+
+      <section class="recipe__steps" aria-labelledby="prep">
+        <h2 id="prep">Preparación</h2>
+        <ol>
+          {recipe.preparacion.map((p) => <li>{p}</li>)}
+        </ol>
+        <p class="recipe__note">
+          Un consejo: leé la receta completa antes de empezar y tené todo pesado y a mano. En
+          pastelería, el orden es medio camino recorrido.
+        </p>
+      </section>
+    </div>
+
+    <nav class="recipe__next">
+      <div class="wrap recipe__next-inner">
+        <div>
+          <span class="recipe__next-label">Seguí con</span>
+          <a href={`/recetas/${next.slug}/`} class="recipe__next-title">{next.title} →</a>
+        </div>
+        <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--solid">Más en Instagram</a>
+      </div>
+    </nav>
+  </article>
+</Layout>
+
+<style>
+  .recipe__hero { background: var(--ink); color: var(--cream); padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 5vw, 3.5rem); }
+  .recipe__back { color: var(--rose-tint); text-decoration: none; font-size: .88rem; font-weight: 600; }
+  .recipe__back:hover { color: var(--cream); }
+  .recipe__cat { font-variant: small-caps; letter-spacing: .05em; font-family: var(--serif); font-size: 1.15rem; color: var(--rose); margin: 1.4rem 0 .3rem; }
+  .recipe__hero h1 { color: var(--cream); margin: 0 0 .9rem; max-width: 16ch; }
+  .recipe__intro { font-size: 1.15rem; color: color-mix(in srgb, var(--cream) 85%, transparent); max-width: 56ch; margin: 0 0 1.8rem; }
+  .recipe__meta { list-style: none; display: flex; flex-wrap: wrap; gap: 2.4rem; padding: 0; margin: 0; }
+  .recipe__meta span { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: color-mix(in srgb, var(--cream) 60%, transparent); margin-bottom: .2rem; }
+  .recipe__meta strong { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--caramel); }
+
+  .recipe__photo { margin: 0; }
+  .recipe__photo img { width: 100%; max-height: 62vh; object-fit: cover; }
+
+  .recipe__body { display: grid; grid-template-columns: .85fr 1.3fr; gap: clamp(2rem, 5vw, 4rem); padding-block: clamp(3rem, 6vw, 5rem); align-items: start; }
+  .recipe__ingredients { position: sticky; top: 90px; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem 1.7rem; }
+  .recipe__ingredients h2 { font-size: 1.5rem; margin: 0 0 1rem; }
+  .recipe__ingredients ul { list-style: none; padding: 0; margin: 0; }
+  .recipe__ingredients li { padding: .6rem 0 .6rem 1.6rem; border-bottom: 1px solid var(--line); position: relative; font-size: .98rem; }
+  .recipe__ingredients li:last-child { border-bottom: 0; }
+  .recipe__ingredients li::before { content: ""; position: absolute; left: 0; top: 1.05rem; width: 7px; height: 7px; background: var(--rose); border-radius: 50%; }
+
+  .recipe__steps h2 { font-size: 1.9rem; margin: 0 0 1.4rem; }
+  .recipe__steps ol { list-style: none; counter-reset: step; padding: 0; margin: 0; display: grid; gap: 1.4rem; }
+  .recipe__steps li { counter-increment: step; position: relative; padding-left: 3.4rem; font-size: 1.08rem; color: var(--ink-soft); line-height: 1.6; }
+  .recipe__steps li::before {
+    content: counter(step); position: absolute; left: 0; top: -.1rem;
+    width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
+    font-family: var(--serif); font-size: 1.15rem; color: var(--caramel-deep);
+    border: 1px solid var(--caramel); border-radius: 50%;
+  }
+  .recipe__note { margin-top: 2rem; padding: 1.2rem 1.4rem; background: var(--rose-tint); border-radius: var(--radius); font-size: .95rem; color: var(--ink); }
+  @media (max-width: 820px) {
+    .recipe__body { grid-template-columns: 1fr; }
+    .recipe__ingredients { position: static; }
+  }
+
+  .recipe__next { background: var(--cream); border-top: 1px solid var(--line); }
+  .recipe__next-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 2rem; flex-wrap: wrap; }
+  .recipe__next-label { display: block; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .recipe__next-title { font-family: var(--serif); font-size: 1.6rem; color: var(--ink); text-decoration: none; }
+  .recipe__next-title:hover { color: var(--caramel-deep); }
+</style>

@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Gallery from "../components/Gallery.astro";
+import { creations } from "../data/creations.js";
+import { categories } from "../data/site.js";
+
+const counts = Object.fromEntries(categories.map((c) => [c.id, creations.filter((x) => x.cat === c.id).length]));
+---
+
+<Layout title="Creaciones" description="Portfolio de tortas, tartas, chocolatería y macarons de Florencia Miro." path="/creaciones/">
+  <section class="pagehead">
+    <div class="wrap-wide">
+      <p class="kicker">Portfolio</p>
+      <h1>Creaciones</h1>
+      <p class="pagehead__lead">
+        Una selección de lo que sale de mi cocina. Tocá cualquier imagen para verla en grande;
+        usá los filtros para recorrer por tipo.
+      </p>
+      <ul class="pagehead__stats">
+        {categories.map((c) => <li><strong>{counts[c.id]}</strong> {c.label}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--top">
+    <div class="wrap-wide">
+      <Gallery items={creations} />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pagehead { background: var(--cream); padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem); border-bottom: 1px solid var(--line); }
+  .pagehead h1 { margin: 0 0 .6rem; }
+  .pagehead__lead { font-size: 1.1rem; color: var(--ink-soft); max-width: 56ch; }
+  .pagehead__stats { list-style: none; display: flex; flex-wrap: wrap; gap: 1.8rem; padding: 0; margin: 1.6rem 0 0; }
+  .pagehead__stats li { font-size: .95rem; color: var(--ink-soft); }
+  .pagehead__stats strong { font-family: var(--serif); font-size: 1.6rem; color: var(--caramel-deep); display: inline-block; margin-right: .3rem; }
+  .section--top { padding-top: clamp(2.5rem, 5vw, 4rem); }
+</style>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://flormiro.netlify.app/sitemap-index.xml
