@@ -13,7 +13,6 @@ import cheesecake from "../assets/gallery/cheesecake-maracuya.jpg";
 import ganache from "../assets/gallery/ganache-frutos-rojos.jpg";
 import keyLime from "../assets/gallery/key-lime.jpg";
 import lemonPie from "../assets/gallery/lemon-pie.jpg";
-import marquise from "../assets/gallery/marquise.jpg";
 import orangePie from "../assets/gallery/orange-pie.jpg";
 import pastafrola from "../assets/gallery/pastafrola.jpg";
 import rogel from "../assets/gallery/rogel.jpg";
@@ -40,6 +39,8 @@ import macaronsBox from "../assets/gallery/macarons-box.jpg";
 import macaronsColor from "../assets/gallery/macarons-color.jpg";
 import macaronsPistacho from "../assets/gallery/macarons-pistacho.jpg";
 import macaronsCafe from "../assets/gallery/macarons-cafe.jpg";
+import bombonesGalaxia from "../assets/gallery/bombones-galaxia.jpg";
+import macaronsRose from "../assets/gallery/macarons-rose.jpg";
 
 export const creations = [
   // ---- Tortas ----
@@ -79,8 +80,6 @@ export const creations = [
   { img: bavaroise, cat: "tartas", title: "Bavaroise · al corte", desc: "Las capas de crema y el terciopelo rosado que la distinguen." },
   { img: tiramisu, cat: "tartas", title: "Tiramisú terciopelo", desc: "Biscuit al café, crema de mascarpone y cobertura 54% con efecto terciopelo.",
     story: "Su origen se remonta al Véneto, en los años '50. En su esencia lleva un biscuit remojado en café intercalado con una delicada crema de huevos y mascarpone, espolvoreado con cacao amargo. Mi propuesta respeta esos sabores clásicos con una presentación moderna: cubierta con chocolate cobertura 54% y un delicado efecto terciopelo." },
-  { img: marquise, cat: "tartas", title: "Marquise de chocolate", desc: "Chocolate intenso, ganache de pistacho, mousse y cobertura 70% cacao.",
-    story: "Un clásico de la pastelería francesa: un chocolate intenso de textura suave, acompañado de un ganache a base de crema, chocolate blanco y pistachos, más una capa de mousse de chocolate con leche y cobertura de ganache 70% cacao. Ideal para una buena taza de café." },
   { img: orangePie, cat: "tartas", title: "Orange Pie", desc: "Curd cítrico y merengue sobre una base crujiente." },
   { img: tartaArandanos, cat: "tartas", title: "Tarta de arándanos", desc: "Mermelada casera de arándanos frescos, ganache de chocolate blanco y picos de merengue.",
     story: "Un postre delicado como la seda, a partir de una mermelada casera de arándanos frescos que aportan color y acidez, con ganache de crema de leche y chocolate blanco, sobre masa sablée y decorada con picos de merengue y cristales de azúcar." },
@@ -88,6 +87,8 @@ export const creations = [
   { img: pastafrola, cat: "tartas", title: "Pastafrola", desc: "La masa quebrada y el dulce de siempre, en versión floreada." },
 
   // ---- Chocolatería ----
+  { img: bombonesGalaxia, cat: "chocolateria", title: "Bombones galaxia", desc: "Rellenos pintados a mano con manteca de cacao: cada uno, un cosmos distinto.",
+    story: "Bombones de autor pintados a mano con manteca de cacao coloreada, en una paleta de nebulosas y galaxias. Pensados para acompañar un buen whisky: cada pieza es única e irrepetible." },
   { img: trufasPlato, cat: "chocolateria", title: "Trufas de chocolate", desc: "Trufas emplatadas sobre cacao amargo: el bocado final de una buena cena." },
   { img: trufasCafe, cat: "chocolateria", title: "Trufas de café", desc: "Rellenas de ganache al café, apoyadas sobre granos tostados." },
   { img: bombonesColor, cat: "chocolateria", title: "Bombones pintados", desc: "Bombones rellenos con manteca de cacao coloreada a mano, uno distinto del otro." },
@@ -100,6 +101,8 @@ export const creations = [
   { img: huevoOrange, cat: "chocolateria", title: "Huevo de autor", desc: "Formas y colores que se salen del molde tradicional de pascua." },
 
   // ---- Macarons ----
+  { img: macaronsRose, cat: "macarons", title: "Macarons & rosé", desc: "Conchas de frutos rojos y vainilla, servidas con una copa de espumante.",
+    story: "Macarons de frutos rojos y vainilla en una mesa pensada para compartir, con una copa de rosé. El bocado perfecto para la merienda o el cierre de una cena." },
   { img: macaronsBox, cat: "macarons", title: "Box surtido", desc: "Frutos rojos, limón, pistacho, vainilla de Madagascar, marroc, café y más.",
     story: "El macaron es un bocado perfecto: corteza crujiente, húmedo por dentro y relleno de delicadas ganaches. Su origen se remonta al siglo XV en Italia, como rústicas galletas de almendras molidas, que luego fueron llevadas a Francia y perfeccionadas hasta lo que hoy conocemos. Una selección de sabores: frutos rojos, limón, pistacho, vainilla de Madagascar, marroc, vauquita, chocolate, café, nougat y mandarina, según disponibilidad." },
   { img: macaronsColor, cat: "macarons", title: "Mega box", desc: "Conchas de almendra de colores, sabores surtidos." },

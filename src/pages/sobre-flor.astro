@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import { site } from "../data/site.js";
 import retrato from "../assets/portraits/flor-retrato.jpg";
 import amasando from "../assets/portraits/flor-amasando.jpg";
-import momentus from "../assets/gallery/bombones-color.jpg";
+import momentus from "../assets/gallery/momentus-maridaje.jpg";
 import betular from "../assets/portraits/con-betular.jpg";
 import villar from "../assets/portraits/con-villar.jpg";
 import nari from "../assets/portraits/con-nari.jpg";
@@ -81,7 +81,7 @@ const mentores = [
   <section class="section project">
     <div class="wrap-wide project__grid">
       <figure class="project__fig">
-        <Image src={momentus} alt="Bombones de la línea Momentus" widths={[500, 800]} sizes="(max-width:820px) 90vw, 440px" />
+        <Image src={momentus} alt="Mesa Momentus: torta, bombones y maridaje para regalar" widths={[600, 1000]} sizes="(max-width:820px) 90vw, 520px" />
       </figure>
       <div class="project__body">
         <p class="kicker">Un proyecto propio</p>
@@ -159,7 +159,7 @@ const mentores = [
   .project { background: var(--ink); color: var(--porcelain); }
   .project__grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
   .project__fig { margin: 0; border-radius: var(--radius); overflow: hidden; }
-  .project__fig img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .project__fig img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
   .project__body h2 { color: var(--cream); margin: 0 0 1.1rem; }
   .project__body p { color: color-mix(in srgb, var(--porcelain) 86%, transparent); }
   .project__body strong { color: var(--cream); }

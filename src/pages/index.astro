@@ -6,7 +6,7 @@ import { site, categories } from "../data/site.js";
 import { creations } from "../data/creations.js";
 import { recipes } from "../data/recipes.js";
 
-import heroImg from "../assets/gallery/trufas-plato.jpg";
+import heroImg from "../assets/gallery/hero-macarons-limon.jpg";
 import catTortas from "../assets/gallery/selva-negra.jpg";
 import catTartas from "../assets/gallery/tarta-higos.jpg";
 import catChoco from "../assets/gallery/bombones-color.jpg";
@@ -35,7 +35,7 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
 >
   <!-- HERO -->
   <section class="hero">
-    <Image src={heroImg} alt="Trufas de chocolate sobre cacao" class="hero__bg" widths={[800, 1280, 1800]} sizes="100vw" loading="eager" />
+    <Image src={heroImg} alt="Macarons de limón sobre mármol" class="hero__bg" widths={[800, 1280, 1800, 2400]} sizes="100vw" loading="eager" />
     <div class="hero__shade"></div>
     <div class="hero__inner wrap-wide">
       <p class="hero__eyebrow">Chef Pâtissier &amp; Chocolatier · Buenos Aires</p>
@@ -190,8 +190,11 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
   .hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
   .hero__shade {
     position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(180deg, rgba(20,12,9,.55) 0%, rgba(20,12,9,.25) 40%, rgba(20,12,9,.88) 100%);
+    background:
+      linear-gradient(180deg, rgba(26,16,11,.34) 0%, rgba(26,16,11,.12) 34%, rgba(26,16,11,.72) 76%, rgba(26,16,11,.93) 100%),
+      linear-gradient(90deg, rgba(26,16,11,.45) 0%, rgba(26,16,11,.05) 55%);
   }
+  .hero__name, .hero__tag { text-shadow: 0 2px 18px rgba(20,12,9,.45); }
   .hero__inner { padding-block: clamp(3rem, 8vw, 6rem); color: var(--cream); }
   .hero__eyebrow { font-weight: 600; letter-spacing: .14em; text-transform: uppercase; font-size: .74rem; color: var(--rose-tint); margin: 0 0 1rem; }
   .hero__name { color: var(--cream); margin: 0 0 1rem; max-width: 14ch; }
