@@ -10,9 +10,34 @@ export function getStaticPaths() {
 const { recipe } = Astro.props;
 const idx = recipes.findIndex((r) => r.slug === recipe.slug);
 const next = recipes[(idx + 1) % recipes.length];
+
+const recipeSchema = {
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  name: recipe.title,
+  description: recipe.intro,
+  image: new URL(recipe.img.src, Astro.site).href,
+  author: { "@type": "Person", name: "Florencia Miro", url: Astro.site?.href },
+  recipeCategory: recipe.cat,
+  recipeCuisine: "Pastelería",
+  inLanguage: "es-AR",
+  keywords: `${recipe.title}, pastelería, receta, Flor Miro`,
+  recipeIngredient: recipe.ingredientes,
+  recipeInstructions: recipe.preparacion.map((p, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    text: p,
+  })),
+};
 ---
 
-<Layout title={recipe.title} description={recipe.intro} path={`/recetas/${recipe.slug}/`}>
+<Layout
+  title={recipe.title}
+  description={recipe.intro}
+  path={`/recetas/${recipe.slug}/`}
+  image={recipe.img.src}
+  jsonld={recipeSchema}
+>
   <article class="recipe">
     <header class="recipe__hero">
       <div class="wrap recipe__hero-inner">

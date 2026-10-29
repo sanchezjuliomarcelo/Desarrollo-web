@@ -3,10 +3,38 @@ import "../styles/global.css";
 import { site, nav } from "../data/site.js";
 import SocialIcon from "../components/SocialIcon.astro";
 
-const { title, description, path = "" } = Astro.props;
+const { title, description, path = "", image = "/og-cover.jpg", jsonld } = Astro.props;
 const fullTitle = title ? `${title} · ${site.brand}` : `${site.name} · ${site.role}`;
 const desc = description || site.tagline;
 const canonical = new URL(path, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
+
+// Perfil profesional (schema.org Person) — posiciona a Flor como referente
+// en pastelería y chocolatería, no como un comercio.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "María Florencia Miro",
+  alternateName: "Flor Miro",
+  jobTitle: ["Chef Pâtissier", "Chocolatier"],
+  description:
+    "Chef pâtissier y chocolatier con más de veinte años de oficio. Pastelería francesa, clásicos argentinos y chocolatería de autor.",
+  url: Astro.site?.href,
+  knowsAbout: [
+    "Pastelería francesa",
+    "Chocolatería",
+    "Panadería",
+    "Repostería argentina",
+    "Macarons",
+    "Bombonería",
+  ],
+  alumniOf: [
+    { "@type": "EducationalOrganization", name: "UTHGRA" },
+    { "@type": "EducationalOrganization", name: "Ott Educación Superior" },
+  ],
+  homeLocation: { "@type": "Place", name: "Buenos Aires, Argentina" },
+  sameAs: [site.instagram.url, site.facebook.url],
+};
 ---
 
 <!doctype html>
@@ -20,11 +48,19 @@ const canonical = new URL(path, Astro.site).href;
     <meta name="author" content={site.name} />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Flor Miro" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="theme-color" content="#2a1c17" />
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {jsonld && <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

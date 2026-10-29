@@ -31,6 +31,7 @@ const usedCats = categories.filter((c) => items.some((i) => i.cat === c.id));
           <figcaption class="tile__cap">
             <span class="tile__title">{item.title}</span>
             <span class="tile__desc">{item.desc}</span>
+            {item.story && <span class="tile__story" hidden>{item.story}</span>}
           </figcaption>
         </button>
       </figure>
@@ -86,10 +87,11 @@ const usedCats = categories.filter((c) => items.some((i) => i.cat === c.id));
       const srcset = pic.getAttribute("srcset") || pic.getAttribute("src");
       // tomar la URL más grande del srcset
       const big = srcset.split(",").map((s) => s.trim().split(" ")[0]).pop();
+      const story = btn.querySelector(".tile__story")?.textContent;
       return {
         src: big,
         title: btn.querySelector(".tile__title")?.textContent || "",
-        desc: btn.querySelector(".tile__desc")?.textContent || "",
+        desc: story || btn.querySelector(".tile__desc")?.textContent || "",
       };
     };
     const show = (i) => {
@@ -172,9 +174,9 @@ const usedCats = categories.filter((c) => items.some((i) => i.cat === c.id));
   }
   .lightbox::backdrop { background: rgba(18,11,8,.92); backdrop-filter: blur(3px); }
   .lightbox[open] { display: grid; grid-template-columns: auto 1fr auto; align-items: center; }
-  .lightbox__fig { margin: 0; display: grid; place-items: center; padding: 2vh 1rem; gap: 1rem; }
+  .lightbox__fig { margin: 0; display: grid; place-items: center; padding: 2vh 1rem; gap: 1rem; overflow-y: auto; max-height: 100vh; }
   .lightbox__img {
-    max-width: min(92vw, 820px); max-height: 78vh; object-fit: contain;
+    max-width: min(92vw, 820px); max-height: 72vh; object-fit: contain;
     border-radius: 3px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
   }
   .lightbox__cap { text-align: center; color: var(--cream); font-family: var(--sans); max-width: 60ch; }

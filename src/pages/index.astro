@@ -15,6 +15,10 @@ import portrait from "../assets/portraits/flor-retrato.jpg";
 import betular from "../assets/portraits/con-betular.jpg";
 import villar from "../assets/portraits/con-villar.jpg";
 import nari from "../assets/portraits/con-nari.jpg";
+import huevoPascua from "../assets/gallery/huevo-pascua.jpg";
+import huevoOrange from "../assets/gallery/huevo-orange.jpg";
+import huevoGreen from "../assets/gallery/huevo-green.jpg";
+import huevoRocklets from "../assets/gallery/huevo-rocklets.jpg";
 
 const catImg = { tortas: catTortas, tartas: catTartas, chocolateria: catChoco, macarons: catMacarons };
 const featured = creations.filter((c) =>
@@ -25,7 +29,10 @@ const featured = creations.filter((c) =>
 const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "torta-rogel"].includes(r.slug));
 ---
 
-<Layout path="/">
+<Layout
+  path="/"
+  description="Florencia Miro, chef pâtissier y chocolatier con más de 20 años de oficio en Buenos Aires. Portfolio de pastelería francesa, chocolatería de autor y clásicos argentinos, más recetas paso a paso."
+>
   <!-- HERO -->
   <section class="hero">
     <Image src={heroImg} alt="Trufas de chocolate sobre cacao" class="hero__bg" widths={[800, 1280, 1800]} sizes="100vw" loading="eager" />
@@ -93,6 +100,27 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
         <a href="/creaciones/" class="btn btn--ghost">Ver todo el portfolio</a>
       </header>
       <Gallery items={featured} showFilter={false} />
+    </div>
+  </section>
+
+  <!-- TEMPORADA -->
+  <section class="section season">
+    <div class="wrap-wide">
+      <header class="sec-head">
+        <p class="kicker">Ediciones de temporada</p>
+        <h2>Lo que trae cada fecha</h2>
+        <p class="season__lead">
+          Hay creaciones que aparecen una vez al año. En Pascuas, huevos de chocolate pintados a mano,
+          uno distinto del otro. En Navidad, el pan dulce artesanal de amasado lento, con frutos secos
+          y cáscaras cítricas confitadas en casa.
+        </p>
+      </header>
+      <div class="season__grid">
+        <figure><Image src={huevoPascua} alt="Huevo de pascua multicolor pintado a mano" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+        <figure><Image src={huevoOrange} alt="Huevo de pascua de autor" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+        <figure><Image src={huevoGreen} alt="Huevo de pascua verde" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+        <figure><Image src={huevoRocklets} alt="Huevos de chocolate con rocklets" widths={[300, 480]} sizes="(max-width:700px) 45vw, 280px" /></figure>
+      </div>
     </div>
   </section>
 
@@ -206,8 +234,18 @@ const teaserRecipes = recipes.filter((r) => ["torta-selva-negra", "lemon-pie", "
 
   .featured { background: var(--porcelain); }
 
+  /* TEMPORADA */
+  .season { background: var(--cream); }
+  .season .sec-head { max-width: 62ch; }
+  .season__lead { color: var(--ink-soft); margin: 0; }
+  .season__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 2.4rem; }
+  .season__grid figure { margin: 0; border-radius: var(--radius); overflow: hidden; }
+  .season__grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .season__grid figure:hover img { transform: scale(1.05); }
+  @media (max-width: 700px) { .season__grid { grid-template-columns: 1fr 1fr; } }
+
   /* TRAYECTORIA */
-  .trajectory { background: var(--cream); }
+  .trajectory { background: var(--porcelain); }
   .trajectory__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
   .trajectory__text h2 { margin-bottom: 1rem; }
   .trajectory__text p { color: var(--ink-soft); margin-bottom: 1.8rem; }

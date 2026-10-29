@@ -1,0 +1,145 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site.js";
+
+import amasando from "../assets/portraits/flor-amasando.jpg";
+import croissants from "../assets/gallery/croissants.jpg";
+import tabletaGeo from "../assets/gallery/tableta-geo.jpg";
+import bombonesColor from "../assets/gallery/bombones-color.jpg";
+import trufasPlato from "../assets/gallery/trufas-plato.jpg";
+import higosCorte from "../assets/gallery/tarta-higos-corte.jpg";
+import selvaCorte from "../assets/gallery/selva-negra-corte.jpg";
+import rogelCorte from "../assets/gallery/rogel-corte.jpg";
+import bananaCorte from "../assets/gallery/banana-split.jpg";
+import bavaroiseCorte from "../assets/gallery/bavaroise-frutilla.jpg";
+import arcoirisCorte from "../assets/gallery/arcoiris.jpg";
+
+const disciplinas = [
+  {
+    img: amasando,
+    kicker: "Pastelería francesa",
+    title: "Masas, cremas y capas",
+    text: "Sablées que se deshacen, biscuits húmedos, ganaches de seda, curds cítricos y merengues. La pastelería francesa es precisión: pesar, respetar tiempos y temperaturas, y dejar que cada elemento aporte su textura.",
+  },
+  {
+    img: croissants,
+    kicker: "Panadería & viennoiserie",
+    title: "El tiempo como ingrediente",
+    text: "El amasado artesanal y el levado lento generan una miga más esponjosa, de sabor y textura delicados. Croissants laminados a mano, pan dulce madurado sin apuro: la masa pide paciencia y se la damos.",
+  },
+  {
+    img: bombonesColor,
+    kicker: "Chocolatería",
+    title: "Templar, pintar, rellenar",
+    text: "Chocolate belga templado al punto justo, manteca de cacao coloreada a mano bombón por bombón, rellenos de ganache y terminaciones con efecto terciopelo. Cada pieza es, literalmente, pintada.",
+  },
+];
+
+const cortes = [
+  { img: higosCorte, cap: "Tarta de higos y pistacho" },
+  { img: selvaCorte, cap: "Selva Negra" },
+  { img: rogelCorte, cap: "Rogel" },
+  { img: bananaCorte, cap: "Banana Split" },
+  { img: bavaroiseCorte, cap: "Bavaroise" },
+  { img: arcoirisCorte, cap: "Arcoíris" },
+];
+---
+
+<Layout
+  title="El oficio"
+  description="Cómo trabaja Florencia Miro: pastelería francesa, panadería, viennoiserie y chocolatería artesanal, paso a paso y a mano."
+  path="/el-oficio/"
+  image={trufasPlato.src}
+>
+  <section class="oficio-hero">
+    <div class="wrap-wide">
+      <p class="kicker">El oficio</p>
+      <h1>Todo pasa por las manos</h1>
+      <p class="oficio-hero__lead">
+        No hay atajos ni conservantes: cada preparación se arma, se hornea, se templa y se termina a
+        mano. Esto es un poco de lo que ocurre antes de que algo quede lindo para una foto.
+      </p>
+    </div>
+  </section>
+
+  <section class="section disciplinas">
+    <div class="wrap-wide">
+      {disciplinas.map((d, i) => (
+        <article class={`disc ${i % 2 ? "disc--rev" : ""}`}>
+          <figure class="disc__fig">
+            <Image src={d.img} alt={d.title} widths={[500, 800, 1100]} sizes="(max-width:820px) 92vw, 540px" loading={i === 0 ? "eager" : "lazy"} />
+          </figure>
+          <div class="disc__body">
+            <p class="kicker">{d.kicker}</p>
+            <h2>{d.title}</h2>
+            <p>{d.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section cortes">
+    <div class="wrap-wide">
+      <header class="cortes__head">
+        <p class="kicker">Al corte</p>
+        <h2>La prueba está adentro</h2>
+        <p class="cortes__lead">Lo que no se ve en la vidriera: las capas, los rellenos y las texturas que hacen el bocado.</p>
+      </header>
+      <div class="cortes__grid">
+        {cortes.map((c) => (
+          <figure class="corte">
+            <Image src={c.img} alt={c.cap} widths={[400, 640]} sizes="(max-width:700px) 45vw, 360px" />
+            <figcaption>{c.cap}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-band__inner">
+      <h2>Mirá el día a día</h2>
+      <p>En Instagram subo proceso, novedades y lo que sale del horno.</p>
+      <div class="cta-band__btns">
+        <a href={site.instagram.url} target="_blank" rel="noopener" class="btn btn--light">@{site.instagram.user}</a>
+        <a href="/creaciones/" class="btn btn--ghost btn--on-dark">Ver creaciones</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .oficio-hero { background: var(--ink); color: var(--cream); padding-block: clamp(3rem, 8vw, 6rem); }
+  .oficio-hero h1 { color: var(--cream); margin: 0 0 1rem; max-width: 14ch; }
+  .oficio-hero__lead { font-size: 1.15rem; color: color-mix(in srgb, var(--cream) 85%, transparent); max-width: 58ch; margin: 0; }
+
+  .disc { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; margin-bottom: clamp(3rem, 7vw, 5.5rem); }
+  .disc:last-child { margin-bottom: 0; }
+  .disc--rev .disc__fig { order: 2; }
+  .disc__fig { margin: 0; border-radius: var(--radius); overflow: hidden; }
+  .disc__fig img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .disc__body h2 { margin: 0 0 1rem; }
+  .disc__body p:not(.kicker) { color: var(--ink-soft); font-size: 1.08rem; }
+  @media (max-width: 820px) {
+    .disc { grid-template-columns: 1fr; gap: 1.4rem; }
+    .disc--rev .disc__fig { order: 0; }
+  }
+
+  .cortes { background: var(--cream); }
+  .cortes__head { max-width: 46ch; margin-bottom: 2.4rem; }
+  .cortes__head h2 { margin: 0 0 .6rem; }
+  .cortes__lead { color: var(--ink-soft); margin: 0; }
+  .cortes__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  .corte { margin: 0; }
+  .corte img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+  .corte figcaption { font-family: var(--serif); font-size: 1.02rem; margin-top: .55rem; color: var(--ink); }
+  @media (max-width: 700px) { .cortes__grid { grid-template-columns: 1fr 1fr; } }
+
+  .cta-band { background: var(--ink); color: var(--cream); text-align: center; padding-block: clamp(3.5rem, 8vw, 6rem); }
+  .cta-band h2 { color: var(--cream); margin-bottom: .6rem; }
+  .cta-band p { color: color-mix(in srgb, var(--cream) 80%, transparent); margin: 0 auto 1.8rem; }
+  .cta-band__inner { max-width: 620px; }
+  .cta-band__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+</style>
