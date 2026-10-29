@@ -3,8 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { site } from "../data/site.js";
 import retrato from "../assets/portraits/flor-retrato.jpg";
-import diploma from "../assets/portraits/flor-diploma.jpg";
-import bartender from "../assets/portraits/bartender.jpg";
+import amasando from "../assets/portraits/flor-amasando.jpg";
 import betular from "../assets/portraits/con-betular.jpg";
 import villar from "../assets/portraits/con-villar.jpg";
 import nari from "../assets/portraits/con-nari.jpg";
@@ -68,8 +67,7 @@ const mentores = [
         </p>
       </div>
       <aside class="story__side">
-        <figure><Image src={diploma} alt="Flor recibiendo su diploma" widths={[300, 460]} sizes="(max-width:800px) 45vw, 240px" /></figure>
-        <figure><Image src={bartender} alt="Flor detrás de la barra" widths={[300, 460]} sizes="(max-width:800px) 45vw, 240px" /></figure>
+        <figure class="story__sidephoto"><Image src={amasando} alt="Flor amasando en la cocina" widths={[380, 600]} sizes="(max-width:800px) 90vw, 280px" /></figure>
         <ul class="story__facts">
           <li><strong>2003</strong> Egresada del UTHGRA</li>
           <li><strong>20+</strong> años de oficio</li>
